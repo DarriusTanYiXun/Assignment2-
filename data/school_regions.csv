@@ -1,0 +1,333 @@
+region,total,lat,lon,state,remoteness,n_government,n_catholic,n_independent,dominant_sector
+Adelaide City,18,-34.9247,138.5988,SA,Major Cities,5,5,8,Independent
+Adelaide Hills,45,-34.9951,138.8174,SA,Major Cities,31,3,11,Government
+Albany,55,-34.5397,117.8594,WA,Outer Regional,35,3,17,Government
+Albury,46,-35.9356,146.9449,NSW,Inner Regional,25,6,15,Government
+Alice Springs,57,-23.6494,133.0001,NT,Very Remote,38,5,14,Government
+Armadale,43,-32.1386,115.9845,WA,Major Cities,27,3,13,Government
+Armidale,35,-30.5657,151.6548,NSW,Inner Regional,23,5,7,Government
+Auburn,30,-33.8566,151.0382,NSW,Major Cities,11,6,13,Independent
+Augusta - Margaret River - Busselton,26,-33.788,115.1896,WA,Inner Regional,14,3,9,Government
+Bald Hills - Everton Park,7,-27.3736,152.9932,QLD,Major Cities,4,0,3,Government
+Ballarat,64,-37.563,143.8445,VIC,Inner Regional,40,16,8,Government
+Bankstown,64,-33.9247,151.0199,NSW,Major Cities,40,12,12,Government
+Banyule,48,-37.7269,145.0843,VIC,Major Cities,33,11,4,Government
+Barkly,12,-19.7897,134.86,NT,Very Remote,12,0,0,Government
+Barossa,21,-34.5209,138.924,SA,Inner Regional,16,0,5,Government
+Barwon - West,12,-38.092,144.0578,VIC,Inner Regional,10,1,1,Government
+Bathurst,30,-33.4568,149.6105,NSW,Inner Regional,19,6,5,Government
+Baulkham Hills,37,-33.7328,150.9923,NSW,Major Cities,21,6,10,Government
+Baw Baw,43,-38.135,145.9692,VIC,Inner Regional,33,5,5,Government
+Bayside,37,-37.9355,145.0135,VIC,Major Cities,17,11,9,Government
+Bayswater - Bassendean,26,-31.9032,115.9185,WA,Major Cities,19,4,3,Government
+Beaudesert,11,-28.0574,152.9695,QLD,Inner Regional,8,2,1,Government
+Beenleigh,12,-27.7145,153.2004,QLD,Major Cities,10,2,0,Government
+Belconnen,35,-35.227,149.0554,ACT,Major Cities,26,7,2,Government
+Belmont - Victoria Park,27,-31.966,115.9201,WA,Major Cities,16,6,5,Government
+Bendigo,47,-36.7587,144.2771,VIC,Inner Regional,29,12,6,Government
+Biloela,16,-24.4658,150.2651,QLD,Outer Regional,14,1,1,Government
+Blacktown,48,-33.7678,150.9087,NSW,Major Cities,30,10,8,Government
+Blacktown - North,44,-33.7016,150.8807,NSW,Major Cities,26,11,7,Government
+Blue Mountains,41,-33.7035,150.4812,NSW,Major Cities,23,5,13,Government
+Boroondara,65,-37.8209,145.0587,VIC,Major Cities,28,14,23,Government
+Botany,12,-33.9367,151.211,NSW,Major Cities,8,3,1,Government
+Bourke - Cobar - Coonamble,38,-30.5936,147.1046,NSW,Remote,29,7,2,Government
+Bowen Basin - North,29,-21.5142,148.1875,QLD,Outer Regional,25,4,0,Government
+Bribie - Beachmere,5,-27.0921,153.1121,QLD,Inner Regional,4,0,1,Government
+Brighton,8,-42.7312,147.2507,TAS,Inner Regional,6,1,1,Government
+Brimbank,72,-37.755,144.8007,VIC,Major Cities,47,19,6,Government
+Bringelly - Green Valley,53,-33.9457,150.8161,NSW,Major Cities,30,8,15,Government
+Brisbane Inner,29,-27.4656,153.0263,QLD,Major Cities,6,8,15,Independent
+Brisbane Inner - East,8,-27.4673,153.0645,QLD,Major Cities,5,2,1,Government
+Brisbane Inner - North,24,-27.4302,153.0382,QLD,Major Cities,13,7,4,Government
+Brisbane Inner - West,22,-27.4621,152.9887,QLD,Major Cities,11,7,4,Government
+Broadbeach - Burleigh,8,-28.0715,153.4316,QLD,Major Cities,6,2,0,Government
+Broken Hill and Far West,16,-31.7652,142.0727,NSW,Outer Regional,14,2,0,Government
+Browns Plains,21,-27.692,153.0652,QLD,Major Cities,12,2,7,Government
+Brunswick - Coburg,27,-37.7529,144.9614,VIC,Major Cities,17,8,2,Government
+Buderim,12,-26.6983,153.0764,QLD,Major Cities,5,2,5,Government
+Bunbury,62,-33.3068,115.7565,WA,Inner Regional,42,10,10,Government
+Bundaberg,47,-24.903,152.3168,QLD,Inner Regional,34,5,8,Government
+Burnett,51,-25.9249,151.7331,QLD,Outer Regional,44,5,2,Government
+Burnie - Ulverstone,32,-41.0893,145.9427,TAS,Outer Regional,22,4,6,Government
+Burnside,12,-34.932,138.6526,SA,Major Cities,6,1,5,Government
+Caboolture,29,-27.08,152.9465,QLD,Major Cities,16,2,11,Government
+Caboolture Hinterland,8,-26.9526,152.5873,QLD,Inner Regional,8,0,0,Government
+Cairns - North,14,-16.8425,145.7,QLD,Outer Regional,7,4,3,Government
+Cairns - South,41,-16.9692,145.7519,QLD,Outer Regional,19,13,9,Government
+Caloundra,19,-26.7893,153.1102,QLD,Major Cities,12,3,4,Government
+Camden,19,-34.0539,150.7309,NSW,Major Cities,15,3,1,Government
+Campaspe,27,-36.271,144.8185,VIC,Inner Regional,18,7,2,Government
+Campbelltown (NSW),78,-34.0414,150.8354,NSW,Major Cities,53,7,18,Government
+Campbelltown (SA),14,-34.8834,138.6764,SA,Major Cities,9,4,1,Government
+Canada Bay,21,-33.8569,151.1125,NSW,Major Cities,12,7,2,Government
+Canning,34,-32.0331,115.9113,WA,Major Cities,24,5,5,Government
+Canterbury,34,-33.9206,151.0867,NSW,Major Cities,20,7,7,Government
+Capalaba,18,-27.5144,153.2134,QLD,Major Cities,12,3,3,Government
+Cardinia,52,-38.067,145.4738,VIC,Major Cities,31,8,13,Government
+Carindale,11,-27.4857,153.089,QLD,Major Cities,6,4,1,Government
+Carlingford,21,-33.7911,151.0471,NSW,Major Cities,15,4,2,Government
+Casey - North,52,-38.0089,145.3002,VIC,Major Cities,30,8,14,Government
+Casey - South,62,-38.0964,145.2984,VIC,Major Cities,46,9,7,Government
+Centenary,6,-27.5466,152.9319,QLD,Major Cities,5,0,1,Government
+Central Highlands (Qld),32,-23.7594,148.4551,QLD,Outer Regional,25,4,3,Government
+Central Highlands (Tas.),8,-42.5454,147.077,TAS,Outer Regional,8,0,0,Government
+Charles Sturt,39,-34.8929,138.5323,SA,Major Cities,24,12,3,Government
+Charters Towers - Ayr - Ingham,50,-19.4027,146.6367,QLD,Outer Regional,35,11,4,Government
+Chatswood - Lane Cove,28,-33.8091,151.1861,NSW,Major Cities,14,5,9,Government
+Chermside,21,-27.3884,153.026,QLD,Major Cities,14,7,0,Government
+Clarence Valley,36,-29.621,153.0513,NSW,Inner Regional,25,5,6,Government
+Cleveland - Stradbroke,25,-27.5684,153.285,QLD,Major Cities,14,3,8,Government
+Cockburn,42,-32.119,115.8249,WA,Major Cities,26,4,12,Government
+Coffs Harbour,55,-30.3078,153.0086,NSW,Inner Regional,37,7,11,Government
+Colac - Corangamite,40,-38.3237,143.3517,VIC,Inner Regional,30,9,1,Government
+Coolangatta,12,-28.149,153.4956,QLD,Major Cities,7,1,4,Government
+Cottesloe - Claremont,32,-31.9771,115.779,WA,Major Cities,14,6,12,Government
+Creswick - Daylesford - Ballan,29,-37.4864,144.0792,VIC,Inner Regional,20,8,1,Government
+Cronulla - Miranda - Caringbah,38,-34.0403,151.1233,NSW,Major Cities,28,8,2,Government
+Daly - Tiwi - West Arnhem,30,-12.8556,131.4815,NT,Very Remote,19,5,6,Government
+Dandenong,68,-37.9707,145.1733,VIC,Major Cities,41,12,15,Government
+Dapto - Port Kembla,32,-34.4786,150.8431,NSW,Major Cities,22,4,6,Government
+Darebin - North,39,-37.7244,145.0167,VIC,Major Cities,22,9,8,Government
+Darebin - South,17,-37.7655,145.0076,VIC,Major Cities,11,5,1,Government
+Darling Downs (West) - Maranoa,61,-27.3471,149.6093,QLD,Outer Regional,50,9,2,Government
+Darling Downs - East,33,-27.3221,151.515,QLD,Inner Regional,28,4,1,Government
+Darwin City,11,-12.4402,130.8388,NT,Outer Regional,7,2,2,Government
+Darwin Suburbs,37,-12.3911,130.8904,NT,Outer Regional,21,4,12,Government
+Devonport,23,-41.2134,146.3682,TAS,Outer Regional,17,3,3,Government
+Dubbo,57,-32.1081,148.74,NSW,Outer Regional,36,13,8,Government
+Dural - Wisemans Ferry,21,-33.6315,151.0107,NSW,Major Cities,12,2,7,Government
+East Arnhem,19,-12.679,136.2374,NT,Very Remote,13,0,6,Government
+East Pilbara,21,-21.5164,120.1864,WA,Very Remote,15,1,5,Government
+Eastern Suburbs - North,43,-33.8848,151.2566,NSW,Major Cities,16,7,20,Independent
+Eastern Suburbs - South,42,-33.9316,151.2406,NSW,Major Cities,18,14,10,Government
+Esperance,17,-33.7133,121.4957,WA,Remote,13,1,3,Government
+Essendon,27,-37.7656,144.917,VIC,Major Cities,15,8,4,Government
+Eyre Peninsula and South West,43,-33.3237,135.7989,SA,Remote,36,4,3,Government
+Fairfield,57,-33.8717,150.9003,NSW,Major Cities,35,11,11,Government
+Far North,46,-13.9245,143.4209,QLD,Very Remote,39,5,2,Government
+Fleurieu - Kangaroo Island,22,-35.4657,138.507,SA,Inner Regional,19,0,3,Government
+Forest Lake - Oxley,22,-27.5983,152.9609,QLD,Major Cities,15,3,4,Government
+Frankston,55,-38.1383,145.1528,VIC,Major Cities,39,7,9,Government
+Fremantle,23,-32.0555,115.7542,WA,Major Cities,12,6,5,Government
+Gascoyne,12,-24.676,114.0798,WA,Very Remote,8,3,1,Government
+Gawler - Two Wells,15,-34.5983,138.71,SA,Major Cities,7,3,5,Government
+Geelong,98,-38.1324,144.3441,VIC,Major Cities,59,19,20,Government
+Gippsland - East,44,-37.7395,148.0073,VIC,Outer Regional,35,4,5,Government
+Gippsland - South West,46,-38.5255,145.7524,VIC,Inner Regional,33,5,8,Government
+Gladstone,38,-24.0428,151.3835,QLD,Inner Regional,26,4,8,Government
+Glen Eira,54,-37.8966,145.0356,VIC,Major Cities,24,9,21,Government
+Glenelg - Southern Grampians,42,-37.9007,141.8307,VIC,Outer Regional,28,6,8,Government
+Gold Coast - North,7,-27.9244,153.3849,QLD,Major Cities,5,1,1,Government
+Gold Coast Hinterland,8,-28.0301,153.2007,QLD,Inner Regional,7,0,1,Government
+Goldfields,38,-29.4507,122.8706,WA,Outer Regional,31,3,4,Government
+Gosford,69,-33.435,151.3521,NSW,Major Cities,44,7,18,Government
+Gosnells,42,-32.0649,115.9684,WA,Major Cities,30,6,6,Government
+Goulburn - Mulwaree,28,-34.67,149.6643,NSW,Inner Regional,22,4,2,Government
+Grampians,67,-36.7353,142.4059,VIC,Outer Regional,51,11,5,Government
+Granite Belt,46,-28.2719,151.9621,QLD,Inner Regional,36,5,5,Government
+Great Lakes,17,-32.2659,152.3543,NSW,Inner Regional,13,2,2,Government
+Griffith - Murrumbidgee (West),45,-34.3946,146.1831,NSW,Outer Regional,32,8,5,Government
+Gungahlin,19,-35.1784,149.1285,ACT,Major Cities,12,4,3,Government
+Gympie - Cooloola,32,-26.1698,152.6455,QLD,Inner Regional,26,3,3,Government
+Hawkesbury,16,-33.5175,150.7383,NSW,Inner Regional,14,0,2,Government
+Heathcote - Castlemaine - Kyneton,40,-37.0979,144.3523,VIC,Inner Regional,32,5,3,Government
+Hervey Bay,15,-25.2961,152.8433,QLD,Inner Regional,9,2,4,Government
+Hobart - North East,25,-42.8742,147.3948,TAS,Inner Regional,17,4,4,Government
+Hobart - North West,28,-42.815,147.2261,TAS,Inner Regional,17,7,4,Government
+Hobart - South and West,16,-42.9928,147.3044,TAS,Inner Regional,8,2,6,Government
+Hobart Inner,31,-42.8855,147.3166,TAS,Inner Regional,16,6,9,Government
+Hobsons Bay,29,-37.8536,144.8533,VIC,Major Cities,17,9,3,Government
+Holdfast Bay,10,-34.9991,138.5211,SA,Major Cities,6,3,1,Government
+Holland Park - Yeronga,31,-27.5054,153.0453,QLD,Major Cities,21,9,1,Government
+Hornsby,31,-33.6815,151.1155,NSW,Major Cities,20,5,6,Government
+Huon - Bruny Island,12,-43.1452,147.0612,TAS,Outer Regional,9,2,1,Government
+Hurstville,39,-33.968,151.0824,NSW,Major Cities,27,8,4,Government
+Innisfail - Cassowary Coast,40,-17.5821,145.9737,QLD,Outer Regional,30,6,4,Government
+Inverell - Tenterfield,32,-29.5136,151.3719,NSW,Outer Regional,28,4,0,Government
+Ipswich Hinterland,49,-27.6258,152.5392,QLD,Inner Regional,43,4,2,Government
+Ipswich Inner,48,-27.6171,152.7733,QLD,Major Cities,28,8,12,Government
+Jervis Bay,1,-35.1315,150.7056,ACT,Inner Regional,1,0,0,Government
+Jimboomba,16,-27.8024,153.0379,QLD,Major Cities,10,4,2,Government
+Joondalup,73,-31.7894,115.7687,WA,Major Cities,52,9,12,Government
+Kalamunda,27,-31.9832,116.0403,WA,Major Cities,18,2,7,Government
+Katherine,28,-15.3089,132.8449,NT,Very Remote,27,1,0,Government
+Keilor,21,-37.7358,144.8786,VIC,Major Cities,11,7,3,Government
+Kempsey - Nambucca,34,-30.895,152.8715,NSW,Inner Regional,25,4,5,Government
+Kenmore - Brookfield - Moggill,13,-27.5179,152.9277,QLD,Major Cities,9,1,3,Government
+Kiama - Shellharbour,36,-34.5863,150.8262,NSW,Major Cities,25,6,5,Government
+Kimberley,46,-17.6699,125.3845,WA,Very Remote,23,14,9,Government
+Kingston,39,-37.9978,145.0874,VIC,Major Cities,27,9,3,Government
+Knox,51,-37.8773,145.2592,VIC,Major Cities,35,10,6,Government
+Kogarah - Rockdale,45,-33.9574,151.1308,NSW,Major Cities,24,11,10,Government
+Ku-ring-gai,52,-33.743,151.1471,NSW,Major Cities,24,6,22,Government
+Kwinana,17,-32.2467,115.8256,WA,Major Cities,12,1,4,Government
+Lachlan Valley,55,-33.4718,147.8492,NSW,Outer Regional,40,11,4,Government
+Lake Macquarie - East,56,-32.9888,151.6659,NSW,Major Cities,42,9,5,Government
+Lake Macquarie - West,38,-33.0139,151.5652,NSW,Major Cities,27,5,6,Government
+Latrobe Valley,51,-38.2272,146.426,VIC,Inner Regional,38,9,4,Government
+Launceston,45,-41.435,147.1433,TAS,Inner Regional,25,7,13,Government
+Leichhardt,20,-33.8725,151.1682,NSW,Major Cities,11,4,5,Government
+Limestone Coast,46,-37.4209,140.6212,SA,Outer Regional,40,3,3,Government
+Litchfield,11,-12.5606,131.0855,NT,Outer Regional,7,1,3,Government
+Lithgow - Mudgee,32,-32.9189,149.8253,NSW,Inner Regional,25,7,0,Government
+Liverpool,40,-33.9355,150.9187,NSW,Major Cities,27,7,6,Government
+Loddon - Elmore,14,-36.4445,144.1045,VIC,Inner Regional,11,3,0,Government
+Loganlea - Carbrook,19,-27.6767,153.1827,QLD,Major Cities,9,2,8,Government
+Lower Hunter,53,-32.7226,151.3815,NSW,Inner Regional,41,6,6,Government
+Lower Murray,16,-34.2304,143.0361,NSW,Outer Regional,14,2,0,Government
+Lower North,27,-33.987,138.6028,SA,Inner Regional,23,1,3,Government
+Macedon Ranges,20,-37.4203,144.6384,VIC,Inner Regional,13,3,4,Government
+Mackay,61,-21.1473,149.0793,QLD,Inner Regional,43,12,6,Government
+Maitland,37,-32.741,151.5761,NSW,Major Cities,19,9,9,Government
+Mandurah,42,-32.5454,115.761,WA,Major Cities,29,4,9,Government
+Manjimup,22,-34.052,116.1077,WA,Outer Regional,17,5,0,Government
+Manly,13,-33.7982,151.2775,NSW,Major Cities,6,3,4,Government
+Manningham - East,14,-37.7717,145.2025,VIC,Major Cities,8,3,3,Government
+Manningham - West,22,-37.776,145.1227,VIC,Major Cities,15,6,1,Government
+Maribyrnong,32,-37.7957,144.8786,VIC,Major Cities,19,10,3,Government
+Marion,32,-35.0179,138.5462,SA,Major Cities,16,6,10,Government
+Maroochy,10,-26.6258,153.082,QLD,Major Cities,7,1,2,Government
+Maroondah,41,-37.8019,145.258,VIC,Major Cities,28,5,8,Government
+Marrickville - Sydenham - Petersham,22,-33.9047,151.1579,NSW,Major Cities,13,4,5,Government
+Maryborough,25,-25.5705,152.6436,QLD,Inner Regional,19,2,4,Government
+Maryborough - Pyrenees,24,-37.2502,143.5844,VIC,Inner Regional,22,1,1,Government
+Meander Valley - West Tamar,12,-41.4752,146.7621,TAS,Outer Regional,10,1,1,Government
+Melbourne City,43,-37.8075,144.9568,VIC,Major Cities,18,6,19,Independent
+Melton - Bacchus Marsh,67,-37.7008,144.6128,VIC,Major Cities,39,12,16,Government
+Melville,38,-32.0494,115.8324,WA,Major Cities,28,5,5,Government
+Merrylands - Guildford,45,-33.8491,150.9812,NSW,Major Cities,32,10,3,Government
+Mid North,26,-33.1434,138.2944,SA,Outer Regional,20,5,1,Government
+Mid West,48,-28.5497,115.4618,WA,Outer Regional,36,7,5,Government
+Mildura,37,-34.3095,142.11,VIC,Outer Regional,25,7,5,Government
+Mitcham,26,-34.9945,138.6062,SA,Major Cities,16,5,5,Government
+Moira,24,-36.0246,145.5809,VIC,Inner Regional,15,7,2,Government
+Molonglo,4,-35.3052,149.035,ACT,Major Cities,3,0,1,Government
+Monash,60,-37.8927,145.1425,VIC,Major Cities,39,13,8,Government
+Moree - Narrabri,32,-29.6475,149.7081,NSW,Outer Regional,25,4,3,Government
+Moreland - North,26,-37.711,144.9434,VIC,Major Cities,14,8,4,Government
+Mornington Peninsula,58,-38.2879,145.0591,VIC,Major Cities,40,10,8,Government
+Mount Druitt,48,-33.7521,150.8242,NSW,Major Cities,31,8,9,Government
+Mt Gravatt,29,-27.5539,153.0954,QLD,Major Cities,17,6,6,Government
+Mudgeeraba - Tallebudgera,14,-28.1177,153.3856,QLD,Major Cities,7,0,7,Government
+Mundaring,24,-31.8907,116.1253,WA,Major Cities,15,2,7,Government
+Murray River - Swan Hill,41,-35.608,143.502,VIC,Outer Regional,29,9,3,Government
+Murray and Mallee,52,-34.6526,139.9969,SA,Outer Regional,41,6,5,Government
+Nambour,19,-26.6105,152.9719,QLD,Major Cities,10,3,6,Government
+Narangba - Burpengary,20,-27.1778,152.9832,QLD,Major Cities,11,4,5,Government
+Nathan,12,-27.5459,153.0362,QLD,Major Cities,5,3,4,Government
+Nerang,15,-27.989,153.3306,QLD,Major Cities,8,2,5,Government
+Newcastle,81,-32.9039,151.7166,NSW,Major Cities,50,17,14,Government
+Nillumbik - Kinglake,33,-37.6436,145.1988,VIC,Major Cities,25,4,4,Government
+Noosa,11,-26.4215,153.0722,QLD,Major Cities,5,3,3,Government
+Noosa Hinterland,10,-26.3916,152.9041,QLD,Inner Regional,7,0,3,Government
+North Canberra,20,-35.2615,149.1403,ACT,Major Cities,11,4,5,Government
+North East,20,-41.2391,147.4466,TAS,Outer Regional,17,1,2,Government
+North Lakes,20,-27.243,153.0092,QLD,Major Cities,11,2,7,Government
+North Sydney - Mosman,32,-33.8328,151.2206,NSW,Major Cities,11,3,18,Independent
+Norwood - Payneham - St Peters,16,-34.9144,138.6373,SA,Major Cities,8,6,2,Government
+Nundah,9,-27.3834,153.0655,QLD,Major Cities,5,4,0,Government
+Onkaparinga,68,-35.1393,138.53,SA,Major Cities,43,11,14,Government
+Orange,38,-33.3172,149.0523,NSW,Inner Regional,27,6,5,Government
+Ormeau - Oxenford,31,-27.8347,153.2948,QLD,Major Cities,21,3,7,Government
+Outback - North,33,-20.0856,140.438,QLD,Remote,25,6,2,Government
+Outback - North and East,30,-30.1873,135.9707,SA,Very Remote,27,2,1,Government
+Outback - South,39,-24.9909,144.3812,QLD,Very Remote,31,8,0,Government
+Palmerston,16,-12.4979,130.983,NT,Outer Regional,10,3,3,Government
+Parramatta,49,-33.8006,150.9919,NSW,Major Cities,31,11,7,Government
+Pennant Hills - Epping,18,-33.7566,151.0711,NSW,Major Cities,11,3,4,Government
+Penrith,61,-33.7646,150.7002,NSW,Major Cities,42,11,8,Government
+Perth City,41,-31.9381,115.8427,WA,Major Cities,21,5,15,Government
+Pittwater,16,-33.6662,151.3051,NSW,Major Cities,9,3,4,Government
+Playford,40,-34.701,138.6791,SA,Major Cities,24,8,8,Government
+Port Adelaide - East,21,-34.8579,138.6249,SA,Major Cities,10,6,5,Government
+Port Adelaide - West,17,-34.8395,138.5145,SA,Major Cities,8,6,3,Government
+Port Douglas - Daintree,10,-16.4249,145.414,QLD,Outer Regional,7,2,1,Government
+Port Macquarie,37,-31.4751,152.8138,NSW,Inner Regional,21,8,8,Government
+Port Phillip,29,-37.8497,144.9677,VIC,Major Cities,16,5,8,Government
+Port Stephens,32,-32.7364,151.9244,NSW,Inner Regional,21,4,7,Government
+Prospect - Walkerville,12,-34.8882,138.6043,SA,Major Cities,5,3,4,Government
+Queanbeyan,21,-35.3777,149.329,NSW,Major Cities,17,3,1,Government
+Redcliffe,17,-27.2301,153.0932,QLD,Major Cities,9,3,5,Government
+Richmond - Windsor,17,-33.6116,150.7691,NSW,Major Cities,11,4,2,Government
+Richmond Valley - Coastal,47,-28.7579,153.5014,NSW,Inner Regional,32,7,8,Government
+Richmond Valley - Hinterland,66,-28.7557,153.1737,NSW,Inner Regional,48,7,11,Government
+Robina,14,-28.0666,153.389,QLD,Major Cities,4,3,7,Independent
+Rockhampton,64,-23.337,150.5288,QLD,Inner Regional,41,14,9,Government
+Rockingham,57,-32.3327,115.7665,WA,Major Cities,39,4,14,Government
+Rocklea - Acacia Ridge,15,-27.6078,153.0324,QLD,Major Cities,8,2,5,Government
+Rouse Hill - McGraths Hill,20,-33.6453,150.9112,NSW,Major Cities,12,3,5,Government
+Ryde - Hunters Hill,45,-33.8067,151.113,NSW,Major Cities,23,11,11,Government
+Salisbury,45,-34.7876,138.6365,SA,Major Cities,34,3,8,Government
+Sandgate,23,-27.328,153.0476,QLD,Major Cities,11,8,4,Government
+Serpentine - Jarrahdale,13,-32.2608,115.9983,WA,Major Cities,9,1,3,Government
+Shepparton,53,-36.3806,145.3959,VIC,Inner Regional,36,8,9,Government
+Sherwood - Indooroopilly,16,-27.5195,152.9811,QLD,Major Cities,8,5,3,Government
+Shoalhaven,41,-34.9718,150.5959,NSW,Inner Regional,30,3,8,Government
+Snowy Mountains,20,-36.4076,149.007,NSW,Inner Regional,12,3,5,Government
+Sorell - Dodges Ferry,8,-42.8123,147.5875,TAS,Inner Regional,4,1,3,Government
+South Canberra,16,-35.3252,149.1269,ACT,Major Cities,8,3,5,Government
+South Coast,38,-36.4321,149.964,NSW,Outer Regional,28,5,5,Government
+South East Coast,5,-42.4328,147.9822,TAS,Outer Regional,5,0,0,Government
+South Perth,17,-31.9967,115.8715,WA,Major Cities,9,4,4,Government
+Southern Highlands,30,-34.5213,150.4147,NSW,Inner Regional,19,3,8,Government
+Southport,18,-27.9732,153.3947,QLD,Major Cities,8,3,7,Government
+Springfield - Redbank,35,-27.6461,152.8848,QLD,Major Cities,21,4,10,Government
+Springwood - Kingston,32,-27.6387,153.1195,QLD,Major Cities,18,3,11,Government
+St Marys,18,-33.7821,150.7848,NSW,Major Cities,15,2,1,Government
+Stirling,71,-31.8825,115.8256,WA,Major Cities,45,13,13,Government
+Stonnington - East,14,-37.8664,145.05,VIC,Major Cities,4,7,3,Catholic
+Stonnington - West,21,-37.8462,145.007,VIC,Major Cities,6,5,10,Independent
+Strathfield - Burwood - Ashfield,55,-33.8862,151.1113,NSW,Major Cities,27,12,16,Government
+Strathpine,15,-27.2856,152.9763,QLD,Major Cities,9,3,3,Government
+Sunbury,16,-37.5773,144.7218,VIC,Major Cities,10,5,1,Government
+Sunnybank,13,-27.5883,153.0633,QLD,Major Cities,9,2,2,Government
+Sunshine Coast Hinterland,24,-26.7586,152.9236,QLD,Inner Regional,20,0,4,Government
+Surf Coast - Bellarine Peninsula,31,-38.2667,144.4427,VIC,Inner Regional,22,7,2,Government
+Surfers Paradise,4,-28.0073,153.3977,QLD,Major Cities,3,1,0,Government
+Sutherland - Menai - Heathcote,48,-34.0355,151.0396,NSW,Major Cities,34,7,7,Government
+Swan,63,-31.8389,115.9718,WA,Major Cities,36,7,20,Government
+Sydney Inner City,51,-33.8855,151.1996,NSW,Major Cities,28,6,17,Government
+Tablelands (East) - Kuranda,28,-17.2768,145.4761,QLD,Outer Regional,20,5,3,Government
+Tamworth - Gunnedah,63,-31.1099,150.6941,NSW,Outer Regional,45,11,7,Government
+Taree - Gloucester,36,-31.8908,152.389,NSW,Inner Regional,28,4,4,Government
+Tea Tree Gully,32,-34.8141,138.7018,SA,Major Cities,22,5,5,Government
+The Gap - Enoggera,20,-27.419,152.9623,QLD,Major Cities,11,6,3,Government
+The Hills District,15,-27.3546,152.9204,QLD,Major Cities,10,1,4,Government
+Toowoomba,78,-27.5626,151.9798,QLD,Inner Regional,44,16,18,Government
+Townsville,74,-19.2794,146.7435,QLD,Outer Regional,39,16,19,Government
+Tuggeranong,32,-35.4191,149.0949,ACT,Major Cities,22,7,3,Government
+Tullamarine - Broadmeadows,75,-37.6345,144.9172,VIC,Major Cities,51,12,12,Government
+Tumut - Tumbarumba,16,-35.51,148.1313,NSW,Inner Regional,12,4,0,Government
+Tweed Valley,51,-28.2846,153.4631,NSW,Major Cities,31,8,12,Government
+Unley,13,-34.9534,138.6093,SA,Major Cities,6,2,5,Government
+Upper Goulburn Valley,53,-37.0797,145.5763,VIC,Inner Regional,39,8,6,Government
+Upper Hunter,24,-32.1521,150.7897,NSW,Inner Regional,15,5,4,Government
+Upper Murray exc. Albury,36,-35.6907,145.4307,NSW,Inner Regional,29,6,1,Government
+Wagga Wagga,76,-34.9928,147.4668,NSW,Inner Regional,52,14,10,Government
+Wangaratta - Benalla,48,-36.455,146.224,VIC,Inner Regional,34,9,5,Government
+Wanneroo,76,-31.7117,115.7633,WA,Major Cities,53,8,15,Government
+Warringah,64,-33.7432,151.2485,NSW,Major Cities,32,10,22,Government
+Warrnambool,30,-38.3183,142.4826,VIC,Inner Regional,20,9,1,Government
+Wellington,37,-38.1326,146.982,VIC,Inner Regional,27,8,2,Government
+West Coast,17,-41.2156,145.2321,TAS,Outer Regional,13,3,1,Government
+West Pilbara,19,-21.3023,116.9567,WA,Remote,17,2,0,Government
+West Torrens,25,-34.9372,138.5526,SA,Major Cities,12,5,8,Government
+Weston Creek,10,-35.3406,149.0518,ACT,Major Cities,4,2,4,Government
+Wheat Belt - North,59,-31.2307,116.9455,WA,Outer Regional,49,7,3,Government
+Wheat Belt - South,24,-32.8579,117.5561,WA,Outer Regional,23,1,0,Government
+Whitehorse - East,19,-37.8362,145.1859,VIC,Major Cities,11,6,2,Government
+Whitehorse - West,37,-37.8292,145.1366,VIC,Major Cities,23,8,6,Government
+Whitsunday,7,-20.3136,148.7095,QLD,Outer Regional,5,1,1,Government
+Whittlesea - Wallan,85,-37.6159,145.0459,VIC,Major Cities,56,19,10,Government
+Woden Valley,15,-35.35,149.0911,ACT,Major Cities,10,3,2,Government
+Wodonga - Alpine,61,-36.3445,146.9853,VIC,Inner Regional,47,10,4,Government
+Wollondilly,18,-34.1827,150.6137,NSW,Inner Regional,16,1,1,Government
+Wollongong,58,-34.3717,150.9007,NSW,Major Cities,41,8,9,Government
+Wyndham,95,-37.8754,144.6808,VIC,Major Cities,62,20,13,Government
+Wynnum - Manly,19,-27.4588,153.1597,QLD,Major Cities,11,4,4,Government
+Wyong,52,-33.2744,151.472,NSW,Major Cities,33,9,10,Government
+Yarra,42,-37.8036,144.9948,VIC,Major Cities,24,9,9,Government
+Yarra Ranges,92,-37.7957,145.4229,VIC,Major Cities,63,10,19,Government
+Yorke Peninsula,16,-34.4254,137.6535,SA,Outer Regional,12,2,2,Government
+Young - Yass,30,-34.571,148.6047,NSW,Inner Regional,24,5,1,Government
