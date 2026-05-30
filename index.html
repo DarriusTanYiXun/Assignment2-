@@ -111,12 +111,55 @@
       line-height: 1.5;
     }
 
-    .embedded-chart-frame {
+    .icsea-brush-vis {
       display: block;
-      width: 100%;
-      height: 980px;
-      border: 0;
-      background: white;
+      width: fit-content;
+      max-width: 100%;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+
+    .icsea-brush-vis.vega-embed,
+    .icsea-brush-vis .vega-embed {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .icsea-brush-sector-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 8px auto 0;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .icsea-brush-sector-legend-title {
+      margin-bottom: 5px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .icsea-brush-sector-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 16px;
+    }
+
+    .icsea-brush-sector-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
+    }
+
+    .icsea-brush-sector-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+      border-radius: 50%;
     }
 
     .chart-subtitle {
@@ -785,12 +828,22 @@
     <div class="chart-card">
       <h3>Where are schools serving different socio-educational communities?</h3>
       <p class="chart-subtitle">Lower ICSEA = less advantaged communities</p>
-      <iframe
-        class="embedded-chart-frame"
-        src="school_openings_time_brush.html?embedded=1"
-        title="Interactive map of Australian schools by ICSEA score range"
-        loading="lazy">
-      </iframe>
+      <div id="icseaBrushVis" class="icsea-brush-vis"></div>
+      <div class="icsea-brush-sector-legend" aria-label="Sector">
+        <div class="icsea-brush-sector-legend-title">Sector</div>
+        <div class="icsea-brush-sector-legend-items">
+          <div class="icsea-brush-sector-legend-item"><span class="icsea-brush-sector-swatch" style="background:#5DCAA5;"></span>Government</div>
+          <div class="icsea-brush-sector-legend-item"><span class="icsea-brush-sector-swatch" style="background:#F0997B;"></span>Catholic</div>
+          <div class="icsea-brush-sector-legend-item"><span class="icsea-brush-sector-swatch" style="background:#AFA9EC;"></span>Independent</div>
+        </div>
+      </div>
+      <p class="chart-note">
+        This shows where schools serving communities with different levels of socio-educational advantage are located.
+        Dragging across the ICSEA score range highlights how schools with lower or higher ICSEA scores are distributed
+        across metropolitan, regional and remote areas. The sector colours also show how Government, Catholic and
+        Independent schools contribute to each selected range. This means a student's nearby school options can differ
+        depending on where they live and the socio-educational profile of their local community.
+      </p>
     </div>
 
     <p class="section-transition">
@@ -3414,6 +3467,312 @@
       ]
     };
 
+    const icseaBrushSectorScale = {
+      "domain": ["Government", "Catholic", "Independent"],
+      "range": ["#5DCAA5", "#F0997B", "#AFA9EC"]
+    };
+
+    const icseaBrushTooltip = [
+      { "field": "School name", "type": "nominal", "title": "School" },
+      { "field": "Sector", "type": "nominal", "title": "Sector" },
+      { "field": "State", "type": "nominal", "title": "State" },
+      { "field": "ICSEA value", "type": "quantitative", "title": "ICSEA value", "format": ",.0f" },
+      { "field": "Total enrolments", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" }
+    ];
+
+    const icseaBrushBaseTransforms = [
+      {
+        "lookup": "ACARA SML ID",
+        "from": {
+          "data": { "url": "data/School_Location_2025.csv" },
+          "key": "ACARA SML ID",
+          "fields": ["Latitude", "Longitude"]
+        }
+      },
+      { "calculate": "toNumber(datum.Latitude)", "as": "latitude_value" },
+      { "calculate": "toNumber(datum.Longitude)", "as": "longitude_value" },
+      { "calculate": "toNumber(datum.ICSEA)", "as": "ICSEA value" },
+      {
+        "calculate": "datum['Total Enrolments'] == null || datum['Total Enrolments'] == '' ? null : toNumber(replace(toString(datum['Total Enrolments']), /,/g, ''))",
+        "as": "Total enrolments"
+      },
+      { "calculate": "datum['School Name']", "as": "School name" },
+      { "calculate": "datum['School Sector']", "as": "Sector" },
+      {
+        "filter": "indexof(['Government', 'Catholic', 'Independent'], datum.Sector) >= 0"
+      }
+    ];
+
+    const icseaBrushSchoolTransforms = [
+      {
+        "filter": "isValid(datum.latitude_value) && isValid(datum.longitude_value) && isValid(datum['Total enrolments'])"
+      },
+      {
+        "filter": "datum.longitude_value >= 112 && datum.longitude_value <= 154 && datum.latitude_value >= -44 && datum.latitude_value <= -9"
+      }
+    ];
+
+    const icseaBrushAnnotationTransforms = [
+      ...icseaBrushSchoolTransforms,
+      { "filter": { "param": "icsea_brush" } },
+      { "filter": "isValid(datum['Total enrolments'])" },
+      {
+        "window": [{ "op": "row_number", "as": "enrolment_rank" }],
+        "sort": [
+          { "field": "Total enrolments", "order": "descending" },
+          { "field": "School name", "order": "ascending" }
+        ]
+      },
+      { "filter": "datum.enrolment_rank == 1" },
+      { "calculate": "'Largest school in range:'", "as": "annotation_heading" },
+      { "calculate": "datum['School name']", "as": "annotation_school" },
+      {
+        "calculate": "format(datum['Total enrolments'], ',.0f') + ' students'",
+        "as": "annotation_enrolments"
+      },
+      { "calculate": "153", "as": "annotation_longitude" },
+      { "calculate": "-16", "as": "annotation_latitude" }
+    ];
+
+    const icseaBrushPositionEncoding = {
+      "longitude": { "field": "longitude_value", "type": "quantitative" },
+      "latitude": { "field": "latitude_value", "type": "quantitative" },
+      "size": {
+        "field": "Total enrolments",
+        "type": "quantitative",
+        "title": "Total enrolments",
+        "scale": {
+          "type": "sqrt",
+          "domain": [0, 6000],
+          "range": [10, 300],
+          "clamp": true
+        },
+        "legend": {
+          "orient": "none",
+          "legendX": 320,
+          "legendY": 500,
+          "direction": "horizontal",
+          "titleOrient": "top",
+          "values": [1000, 3000, 6000],
+          "format": ",.0f",
+          "symbolFillColor": "#9d9d9d",
+          "symbolStrokeColor": "#9d9d9d",
+          "symbolOpacity": 0.72
+        }
+      }
+    };
+
+    const icseaBrushSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "background": "white",
+      "autosize": {
+        "type": "pad",
+        "contains": "padding"
+      },
+      "data": { "url": "data/School_Profile_2025.csv" },
+      "transform": icseaBrushBaseTransforms,
+      "vconcat": [
+        {
+          "width": 800,
+          "height": 500,
+          "projection": {
+            "type": "mercator",
+            "center": [133.5, -27],
+            "scale": 650,
+            "translate": [400, 250]
+          },
+          "layer": [
+            {
+              "data": {
+                "url": "data/SA3_2021_AUST_GDA2020.json",
+                "format": { "type": "topojson", "feature": "SA3_2021_AUST_GDA2020" }
+              },
+              "mark": {
+                "type": "geoshape",
+                "fill": "#eef4f1",
+                "stroke": "#9aabb8",
+                "strokeWidth": 0.45
+              }
+            },
+            {
+              "transform": icseaBrushSchoolTransforms,
+              "mark": {
+                "type": "circle",
+                "filled": true,
+                "color": "#cccccc",
+                "opacity": 0.2
+              },
+              "encoding": {
+                ...icseaBrushPositionEncoding,
+                "tooltip": icseaBrushTooltip
+              }
+            },
+            {
+              "transform": [
+                ...icseaBrushSchoolTransforms,
+                { "filter": { "param": "icsea_brush" } }
+              ],
+              "mark": {
+                "type": "circle",
+                "filled": true,
+                "opacity": 0.7,
+                "stroke": "#ffffff",
+                "strokeWidth": 0.25
+              },
+              "encoding": {
+                ...icseaBrushPositionEncoding,
+                "color": {
+                  "field": "Sector",
+                  "type": "nominal",
+                  "title": "Sector",
+                  "scale": icseaBrushSectorScale,
+                  "legend": null
+                },
+                "tooltip": icseaBrushTooltip
+              }
+            },
+            {
+              "transform": icseaBrushAnnotationTransforms,
+              "mark": {
+                "type": "rule",
+                "color": "#111111",
+                "strokeDash": [4, 4],
+                "strokeWidth": 1.5
+              },
+              "encoding": {
+                "longitude": { "field": "longitude_value", "type": "quantitative" },
+                "latitude": { "field": "latitude_value", "type": "quantitative" },
+                "longitude2": { "field": "annotation_longitude" },
+                "latitude2": { "field": "annotation_latitude" }
+              }
+            },
+            {
+              "transform": icseaBrushAnnotationTransforms,
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 6,
+                "dy": -14,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "#111111"
+              },
+              "encoding": {
+                "longitude": { "field": "annotation_longitude", "type": "quantitative" },
+                "latitude": { "field": "annotation_latitude", "type": "quantitative" },
+                "text": { "field": "annotation_heading", "type": "nominal" },
+                "tooltip": icseaBrushTooltip
+              }
+            },
+            {
+              "transform": icseaBrushAnnotationTransforms,
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 6,
+                "fontSize": 12,
+                "fontWeight": "bold"
+              },
+              "encoding": {
+                "longitude": { "field": "annotation_longitude", "type": "quantitative" },
+                "latitude": { "field": "annotation_latitude", "type": "quantitative" },
+                "text": { "field": "annotation_school", "type": "nominal" },
+                "color": {
+                  "field": "Sector",
+                  "type": "nominal",
+                  "scale": icseaBrushSectorScale,
+                  "legend": null
+                },
+                "tooltip": icseaBrushTooltip
+              }
+            },
+            {
+              "transform": icseaBrushAnnotationTransforms,
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "baseline": "middle",
+                "dx": 6,
+                "dy": 14,
+                "fontSize": 12,
+                "fontWeight": "bold",
+                "color": "#111111"
+              },
+              "encoding": {
+                "longitude": { "field": "annotation_longitude", "type": "quantitative" },
+                "latitude": { "field": "annotation_latitude", "type": "quantitative" },
+                "text": { "field": "annotation_enrolments", "type": "nominal" },
+                "tooltip": icseaBrushTooltip
+              }
+            }
+          ]
+        },
+        {
+          "width": 800,
+          "height": 110,
+          "title": "Drag to select an ICSEA score range and highlight schools on the map",
+          "transform": [
+            { "filter": "isValid(datum['ICSEA value'])" },
+            { "filter": "datum['ICSEA value'] >= 500 && datum['ICSEA value'] <= 1250" }
+          ],
+          "params": [
+            {
+              "name": "icsea_brush",
+              "value": { "x": [500, 850] },
+              "select": { "type": "interval", "encodings": ["x"] }
+            }
+          ],
+          "mark": { "type": "bar", "clip": true },
+          "encoding": {
+            "x": {
+              "field": "ICSEA value",
+              "type": "quantitative",
+              "bin": { "step": 25 },
+              "title": "ICSEA score",
+              "scale": { "domain": [500, 1250] }
+            },
+            "y": {
+              "aggregate": "count",
+              "type": "quantitative",
+              "title": "Schools"
+            },
+            "color": {
+              "field": "Sector",
+              "type": "nominal",
+              "title": "Sector",
+              "scale": icseaBrushSectorScale,
+              "legend": null
+            },
+            "tooltip": [
+              { "field": "ICSEA value", "type": "quantitative", "bin": { "step": 25 }, "title": "ICSEA score range" },
+              { "field": "Sector", "type": "nominal", "title": "Sector" },
+              { "aggregate": "count", "type": "quantitative", "title": "Schools" }
+            ]
+          }
+        }
+      ],
+      "center": true,
+      "spacing": 64,
+      "resolve": {
+        "scale": { "color": "shared" }
+      },
+      "config": {
+        "title": { "font": "sans-serif", "fontSize": 13 },
+        "view": { "stroke": null },
+        "legend": {
+          "labelFontSize": 11,
+          "titleFontSize": 11,
+          "symbolSize": 80
+        },
+        "axis": {
+          "labelFontSize": 10,
+          "titleFontSize": 11
+        }
+      }
+    };
+
     const embedOptions = {
       renderer: "svg",
       actions: false
@@ -3426,6 +3785,7 @@
     vegaEmbed("#studentTeacherResourcing", studentTeacherResourcingSpec, embedOptions);
     vegaEmbed("#teacherCountRemoteness", teacherCountRemotenessSpec, embedOptions);
     vegaEmbed("#icseaViolin", icseaViolinSpec, embedOptions);
+    vegaEmbed("#icseaBrushVis", icseaBrushSpec, embedOptions);
     vegaEmbed("#cricosIcsea", cricosIcseaSpec, embedOptions);
     vegaEmbed("#seaQuarter", seaQuarterSpec, embedOptions);
     vegaEmbed("#lboteScatter", lboteScatterSpec, embedOptions);
