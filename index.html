@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Does where you live and what school you go to shape your education in Australia?</title>
+  <title>Does where you live shape the schools and student communities around you?</title>
 
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
@@ -25,26 +25,45 @@
     section {
       max-width: 1050px;
       margin: 0 auto;
-      padding: 28px;
+      padding: 48px 28px;
     }
 
     h1 {
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 42px;
-      line-height: 1.15;
+      line-height: 1.1;
       margin: 0 0 16px 0;
-      font-weight: 600;
+      font-weight: 400;
+      color: #111111;
     }
 
     h2 {
+      font-family: Georgia, "Times New Roman", serif;
       font-size: 28px;
       margin: 20px 0 8px 0;
-      font-weight: 600;
+      font-weight: 400;
+      color: #111111;
+    }
+
+    .act-section + .act-section {
+      border-top: 3px solid #f5eddd;
+    }
+
+    .act-heading {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 38px;
+      line-height: 1.12;
+      margin: 16px 0 12px 0;
+      font-weight: 700;
+      color: #111111;
     }
 
     h3 {
-      font-size: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 26px;
       margin: 0 0 8px 0;
-      font-weight: 500;
+      font-weight: 400;
+      color: #111111;
     }
 
     p {
@@ -58,6 +77,12 @@
       font-size: 16px;
       color: #555;
       max-width: 900px;
+    }
+
+    .section-transition {
+      font-size: 20px;
+      line-height: 1.65;
+      max-width: 1100px;
     }
 
     .section-label {
@@ -84,6 +109,22 @@
       color: #555;
       margin-top: 14px;
       line-height: 1.5;
+    }
+
+    .embedded-chart-frame {
+      display: block;
+      width: 100%;
+      height: 980px;
+      border: 0;
+      background: white;
+    }
+
+    .chart-subtitle {
+      max-width: 900px;
+      margin: 4px 0 14px 0;
+      color: #555;
+      font-size: 15px;
+      line-height: 1.4;
     }
 
     .section-takeaway {
@@ -119,52 +160,203 @@
       min-height: 40px;
     }
 
-    .chart-with-side-notes {
-      display: block;
-      margin-top: 8px;
+    .two-map-controls {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 18px 0 18px 0;
     }
 
-    .chart-with-side-notes .vis {
-      margin-top: 16px;
+    .two-map-controls select,
+    .two-map-controls button {
+      font: inherit;
+      padding: 6px 10px;
     }
 
-    .boxplot-reading-guide {
-      max-width: 900px;
-      background: #f7f7f2;
-      border-left: 4px solid #8a8f98;
-      padding: 14px 16px;
-      margin: 12px 0 18px 0;
-      color: #444;
+    .two-map-zoom-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .two-map-zoom-control input {
+      width: 180px;
+    }
+
+    .two-map-zoom-value {
+      min-width: 3.2em;
+      color: #333333;
       font-size: 14px;
-      line-height: 1.45;
-      overflow-wrap: anywhere;
     }
 
-    .boxplot-reading-guide h4 {
-      margin: 0 0 12px 0;
-      font-size: 15px;
-      color: #222;
+    .two-map-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .boxplot-reading-guide ul {
-      margin: 0 0 0 20px;
-      padding: 0;
+    .side-by-side-charts {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: center;
     }
 
-    .boxplot-reading-guide li {
+    .side-by-side-charts .vega-embed,
+    .side-by-side-charts .vega-embed svg {
+      width: 100% !important;
+      max-width: 100%;
+      height: auto !important;
+    }
+
+    .side-chart-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 21px;
+      font-weight: 400;
+      color: #111111;
+      text-align: center;
       margin: 0 0 10px 0;
     }
 
-    .boxplot-reading-guide li:last-child {
-      margin-bottom: 0;
+    .resourcing-sector-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 12px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
     }
 
-    .boxplot-reading-guide ul ul {
-      margin-top: 8px;
+    .resourcing-sector-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
     }
 
-    .boxplot-reading-guide ul ul li {
-      margin-bottom: 8px;
+    .resourcing-sector-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .resourcing-sector-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .resourcing-sector-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+    }
+
+    .two-map-panel {
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .two-map-panel h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      margin: 0 0 12px 0;
+      font-size: 20px;
+      font-weight: 400;
+      color: #111111;
+      text-align: center;
+    }
+
+    .two-map-container {
+      min-height: 0;
+    }
+
+    .two-map-container.vega-embed,
+    .two-map-container .vega-embed,
+    .two-map-container.vega-embed svg,
+    .two-map-container.vega-embed canvas,
+    .two-map-container .vega-embed svg {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    .two-map-container.vega-embed svg,
+    .two-map-container.vega-embed canvas,
+    .two-map-container .vega-embed svg {
+      height: auto !important;
+    }
+
+    .two-map-legend {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 18px;
+      width: fit-content;
+      max-width: 100%;
+      margin: 8px auto 0;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .two-map-legend-title {
+      margin-bottom: 5px;
+      font-weight: 700;
+    }
+
+    .two-map-legend-items {
+      display: grid;
+      gap: 3px;
+    }
+
+    .two-map-legend-item {
+      display: inline-flex;
+      min-height: 15px;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .two-map-sector-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+      border-radius: 50%;
+    }
+
+    .two-map-size-swatch {
+      display: inline-block;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #9d9d9d;
+      opacity: 0.72;
+    }
+
+    .two-map-density-legend {
+      display: block;
+      width: 300px;
+    }
+
+    .two-map-density-gradient {
+      width: 300px;
+      height: 18px;
+      background: linear-gradient(90deg, #ffffb2 0%, #feb24c 45%, #f03b20 76%, #bd0026 100%);
+    }
+
+    .two-map-density-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .two-map-grid,
+      .side-by-side-charts {
+        grid-template-columns: 1fr;
+      }
+
     }
 
     .vis-centered {
@@ -197,12 +389,140 @@
       margin-right: auto !important;
     }
 
+    #schoolTypeState.vega-embed,
+    #schoolTypeState .vega-embed {
+      transform: translateX(-32px);
+    }
+
     .vis-centered .vega-embed svg,
     .vis-centered .vega-embed canvas,
     .vis-centered.vega-embed svg,
     .vis-centered.vega-embed canvas {
       display: block;
       margin: 0 auto;
+    }
+
+    #cricosIcsea.vega-embed,
+    #cricosIcsea .vega-embed {
+      width: 100% !important;
+      max-width: 100%;
+    }
+
+    #cricosIcsea.vega-embed svg,
+    #cricosIcsea .vega-embed svg {
+      width: 100% !important;
+      max-width: 100%;
+      height: auto !important;
+      display: block;
+    }
+
+    .sea-quarter-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 10px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .sea-quarter-legend-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .sea-quarter-legend-items {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 4px 22px;
+    }
+
+    .sea-quarter-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .sea-quarter-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+    }
+
+    .sector-donut-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 10px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .sector-donut-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .sector-donut-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .sector-donut-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .sector-donut-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+      border-radius: 50%;
+    }
+
+    .school-type-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 10px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .school-type-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .school-type-legend-items {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      gap: 4px 18px;
+    }
+
+    .school-type-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .school-type-swatch {
+      width: 10px;
+      height: 10px;
+      flex: 0 0 10px;
+    }
+
+    @media (max-width: 620px) {
+      .sea-quarter-legend-items {
+        grid-template-columns: 1fr;
+      }
     }
 
     .vega-bindings {
@@ -232,111 +552,167 @@
 <body>
   <header>
     <div class="section-label">FIT2179 Data Visualisation 2</div>
-    <h1>Does where you live and what school you go to shape your education in Australia?</h1>
+    <h1>Does where you live shape the schools and student communities around you?</h1>
     <p class="intro">
-      Australian schools are not spread evenly across the country. Some students live in places with many nearby
-      schools and several sectors (Government, Catholic or Independent) to choose from, while others live in areas where options are more limited. 
+      Australian schools are not evenly spread across the country. Some students live in places with many nearby
+      schools and several sectors to choose from such as Government, Catholic or Independent, while others live in areas where options are more limited.
+       Students socio-educational advantage and student background also plays a part in which school sector they can choose from and how this may impact their schooling expereience.
     </p>
-    <p>
-        Australian school access and school experience are shaped by geography. 
-        Major city students usually have more nearby schools and more sector choice, 
-        while remote students may face fewer and more spread-out options. 
-        School sector is also linked to differences in socio-educational advantage and student background.
-    </p>
+
   </header>
 
-  <section>
-    <div class="section-label">Section 1</div>
-    <h2>Where are schools available?</h2>
+  <section class="act-section">
+    <h2 class="act-heading">Where are schools available?</h2>
     <p>
-      School choice is not the same everywhere. The number of schools parents can choose for their children 
-      depends on where they live, especially which state or region they are in. If schools are close by, getting 
-      to school may be easier. However, students may need to spend more time commuting if schools are spread far apart.
-    </p>
-
-    <p>
-      This is important because the time spent commuting can affect everyday life. A longer commute can reduce the time students 
-      have for studying, resting, spending time with family, or doing other activities. This section looks at where 
-      schools are located across Australia and which areas have fewer accessible school options.
+      Knowing where schools are located and how many schools are nearby is an important part of understanding school access. This is important because 
+      not all states and regions have the same number of schools and spread distribution. Even more so with the school sectors, impacting their school choice.
     </p>
 
     <div class="chart-card">
-      <h3>Where Australian schools are located</h3>
-      <p>
-        Each point is a school. Larger points show schools with more enrolments. Colour shows the school sector:
-        Government, Catholic or Independent.
-      </p>
-      <div id="mapSymbol" class="vis"></div>
-      <p class="chart-note">
-        This shows schools clustered around major cities and the east coast, while large inland and remote areas have fewer visible school points.
-      </p>
-    </div>
+      <h3>Schools availability across Australia</h3>
 
-    <div class="chart-card">
-      <h3>Where are schools most concentrated?</h3>
-      <p>
-        Colour shows schools per square kilometre in each SA3 region. Darker regions have more schools packed
-        into each square kilometre.
-      </p>
-      <div id="mapAccess" class="vis"></div>
+      <div class="two-map-controls">
+        <label>State:
+          <select id="twoMapStateSelect">
+            <option>All</option>
+            <option>NSW</option>
+            <option>VIC</option>
+            <option>QLD</option>
+            <option>WA</option>
+            <option>SA</option>
+            <option>TAS</option>
+            <option>ACT</option>
+            <option>NT</option>
+          </select>
+        </label>
+
+        <label>Sector:
+          <select id="twoMapSectorSelect">
+            <option>All</option>
+            <option>Government</option>
+            <option>Catholic</option>
+            <option>Independent</option>
+          </select>
+        </label>
+
+        <label class="two-map-zoom-control">Zoom:
+          <input id="twoMapZoomSlider" type="range" min="1" max="4" step="0.25" value="1">
+          <span id="twoMapZoomValue" class="two-map-zoom-value">1.00x</span>
+        </label>
+      </div>
+
+      <div class="two-map-grid">
+        <div class="two-map-panel">
+          <h4>School locations by sector and enrolment</h4>
+          <div id="mapProportional" class="two-map-container"></div>
+          <div class="two-map-legend" aria-label="School sector and enrolments">
+            <div>
+              <div class="two-map-legend-title">School sector</div>
+              <div class="two-map-legend-items">
+                <div class="two-map-legend-item"><span class="two-map-sector-swatch" style="background:#5BC2A8;"></span>Government</div>
+                <div class="two-map-legend-item"><span class="two-map-sector-swatch" style="background:#E6863E;"></span>Catholic</div>
+                <div class="two-map-legend-item"><span class="two-map-sector-swatch" style="background:#9A9BD0;"></span>Independent</div>
+              </div>
+            </div>
+            <div>
+              <div class="two-map-legend-title">Enrolments</div>
+              <div class="two-map-legend-items">
+                <div class="two-map-legend-item"><span class="two-map-size-swatch" style="width:7px;height:7px;"></span>500</div>
+                <div class="two-map-legend-item"><span class="two-map-size-swatch" style="width:10px;height:10px;"></span>1500</div>
+                <div class="two-map-legend-item"><span class="two-map-size-swatch" style="width:15px;height:15px;"></span>6000</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-map-panel">
+          <h4>School concentration</h4>
+          <div id="mapChoropleth" class="two-map-container"></div>
+          <div class="two-map-legend two-map-density-legend" aria-label="Number of schools">
+            <div class="two-map-legend-title">Number of schools</div>
+            <div class="two-map-density-gradient"></div>
+            <div class="two-map-density-labels">
+              <span>1</span>
+              <span>25</span>
+              <span>50</span>
+              <span>75</span>
+              <span>100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <p class="chart-note">
-        This shows where school options are more concentrated. Higher values suggest more nearby school options within a smaller area. Students in these areas may have more nearby school choices.
+        This shows that schools clustered around major cities and the east coast, with more students attending schools in those areas compared to regional and remote areas. And that schools are more concentrated in major cities, while regional and remote areas have fewer schools spread across larger areas. This means students in dense urban areas are likely to have more nearby school options than students in less populated regional and remote areas, which can affect school access and choice for students based on where they live.
       </p>
     </div>
-    <p class="section-takeaway">
-      <strong>Section summary:</strong> Schools are concentrated in major cities and selected coastal regions.
-      This means students in dense urban areas are likely to have more nearby school options than students in
-      sparsely populated regional and remote areas.
+    <p class="section-transition">
+      These maps show where schools exist but not all schools are the same. Australia runs three distinct school sectors: government, Catholic and independent. Which sector a child ends up in shapes almost everything that follows
     </p>
   </section>
 
-  <section>
-    <div class="section-label">Section 2</div>
-    <h2>What school choices are available?</h2>
+  <section class="act-section">
+    <h2 class="act-heading">What school choices are available?</h2>
     <p>
-      Having a school nearby is only one part of access. Families may also care about sector, school type, location
-      and teaching resources. This section shows how those choices differ across Australia.
+      Knowing the breakdown of school sectors nationally, school sectors spread across remoteness areas, school types distribution across states and how students per teacher ratios differ across sectors and remoteness areas
+      is important for families when making school choice decisions. 
     </p>
 
     <div class="chart-card">
-      <h3>What types of school sectors make up Australia's school system?</h3>
-      <p>
-        This donut chart shows the national breakdown of schools by sector. The three sectors are Government,
-        Catholic and Independent.
-      </p>
+      <h3>Breakdown of school sectors in Australia's school system nationally</h3>
+
       <div id="sectorDonut" class="vis vis-centered"></div>
+      <div class="sector-donut-legend" aria-label="School sector">
+        <div class="sector-donut-legend-title">School sector</div>
+        <div class="sector-donut-legend-items">
+          <div class="sector-donut-legend-item"><span class="sector-donut-swatch" style="background:#5BC2A8;"></span>Government</div>
+          <div class="sector-donut-legend-item"><span class="sector-donut-swatch" style="background:#E6863E;"></span>Catholic</div>
+          <div class="sector-donut-legend-item"><span class="sector-donut-swatch" style="background:#9A9BD0;"></span>Independent</div>
+        </div>
+      </div>
       <p class="chart-note">
-        Why this matters: this chart gives the starting point for school choice. Government schools make up the
-        largest share of Australian schools, while Catholic and Independent schools form smaller but still important
+        Government schools make up the largest share of Australian schools, while Catholic and Independent schools form smaller but still important
         parts of the system.
       </p>
     </div>
 
     <div class="chart-card">
-      <h3>What types of schools are found in each state?</h3>
-      <p>
-        This stacked bar chart compares school types across states and territories. School type refers to whether
-        a school is Primary, Secondary, Combined or Special.
-      </p>
-      <div id="schoolTypeState" class="vis"></div>
+      <h3>School sector choice by remoteness</h3>
+      <div id="remotenessHeatmap" class="vis vis-centered"></div>
       <p class="chart-note">
-        Why this matters: the school options available to students are not identical across states. Larger states
-        have more schools overall, but the mix of primary, secondary, combined and special schools also changes.
+        This shows that most share of schools of each sector are located in major cities, while the share of schools in regional and remote areas is smaller. And that Government schools have a larger share of schools in regional and remote areas compared to Catholic and Independent schools, which are more concentrated in major cities.
+        So those that wants to go to catholic or independent schools may have more limited options if they live in regional or remote areas, while those that want to go to government schools may have more options across different remoteness areas.
       </p>
     </div>
 
+    <p class="section-transition">
+      The national picture masks significant variation between states. NSW and Victoria have the highest concentration
+      of independent schools; the Northern Territory is almost entirely government. Where you grow up in Australia
+      shapes which sector is even available to you.
+    </p>
+
     <div class="chart-card">
-      <h3>Are school sectors spread differently across remote and city areas?</h3>
-      <p>
-        This heatmap shows where each school sector is located across remoteness areas. Darker cells mean a larger
-        share of that sector's schools are in that type of area.
-      </p>
-      <div id="remotenessHeatmap" class="vis vis-centered"></div>
-      <p class="chart-note">
-        Why this matters: school sector choice changes by location. A sector that is common in major cities may be
-        less common in remote areas, which can limit the kinds of schools families can realistically choose.
+      <h3>Types of schools found in each state</h3>
+      <div id="schoolTypeState" class="vis vis-centered"></div>
+      <div class="school-type-legend" aria-label="School type">
+        <div class="school-type-legend-title">School type</div>
+        <div class="school-type-legend-items">
+          <div class="school-type-legend-item"><span class="school-type-swatch" style="background:#4C78A8;"></span>Primary</div>
+          <div class="school-type-legend-item"><span class="school-type-swatch" style="background:#F58518;"></span>Secondary</div>
+          <div class="school-type-legend-item"><span class="school-type-swatch" style="background:#54A24B;"></span>Combined</div>
+          <div class="school-type-legend-item"><span class="school-type-swatch" style="background:#B279A2;"></span>Special</div>
+        </div>
+      </div>
+      <p class="chart-note">     
+        Families do not always have the same school choices. The type of school they choose depends on their child’s age, needs and what is available nearby. Larger states have more schools overall, but each state has a different mix of primary, secondary, combined and special schools. This means some families may find it harder than others to access the type of school that best suits their child depending on where they live.
       </p>
     </div>
+
+    <p class="section-transition">
+      Beyond what types of schools exist, there are also differences in what resources those schools have. One of the
+      most direct measures is how many students share each teacher - a gap that plays out differently across sectors
+      and locations.
+    </p>
 
     <div class="chart-card">
       <h3>How many students are there per teacher across sectors and locations?</h3>
@@ -344,23 +720,43 @@
         This connected dot plot compares students per full-time-equivalent (FTE) teaching staff member across
         school sectors and remoteness areas.
       </p>
-      <div id="studentTeacherResourcing" class="vis"></div>
+      <div class="side-by-side-charts">
+        <div>
+          <h4 class="side-chart-title">Students per teacher</h4>
+          <div id="studentTeacherResourcing" class="vis"></div>
+        </div>
+
+        <div>
+          <h4 class="side-chart-title">Total FTE teaching staff</h4>
+          <div id="teacherCountRemoteness" class="vis"></div>
+        </div>
+
+      </div>
+      <div class="resourcing-sector-legend" aria-label="School sector">
+        <div class="resourcing-sector-legend-title">School sector</div>
+        <div class="resourcing-sector-legend-items">
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#5BC2A8;"></span>Government</div>
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#E6863E;"></span>Catholic</div>
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#9A9BD0;"></span>Independent</div>
+        </div>
+      </div>
       <p class="chart-note">
         Why this matters: access is not only about school numbers. Student-teacher ratios add a resourcing layer,
         although they do not directly measure class size or school quality.
       </p>
     </div>
-    <p class="section-takeaway">
-      <strong>Section summary:</strong> School choice changes by place. The balance of Government, Catholic and
-      Independent schools, the mix of school types and student-teacher ratios all vary across states and
-      remoteness areas.
+
+    <p class="section-transition">
+      Resources tell part of the story. But the deeper question is who each sector actually serves. The students in
+      government, Catholic and independent schools do not reflect a random cross-section of Australian society - the
+      differences are stark, and they start with the communities each sector is built into.
     </p>
   </section>
 
-  <section>
-    <div class="section-label">Section 3</div>
-    <h2>Who do different schools serve?</h2>
+  <section class="act-section">
+    <h2 class="act-heading">Who do different schools serve?</h2>
     <p>
+      Knowing your school-community advantage and student background is important for understanding the school experience. This is because different schools may serve different communities and student populations, which can affect the resources, opportunities and support available to students.
       The next question is whether different kinds of schools serve similar student communities. This section uses
       Index of Community Socio-Educational Advantage (ICSEA), SEA quarters, Commonwealth Register of Institutions
       and Courses for Overseas Students (CRICOS) registration, LBOTE and Indigenous enrolment to look at
@@ -368,72 +764,81 @@
     </p>
 
     <div class="chart-card">
-      <h3>Do school sectors differ in socio-educational advantage?</h3>
-      <p>
-        This box plot compares Index of Community Socio-Educational Advantage (ICSEA) scores across Government,
-        Catholic and Independent schools. Higher values indicate greater socio-educational advantage in the
-        school community.
-      </p>
-      <div class="chart-with-side-notes">
-        <aside class="boxplot-reading-guide">
-          <ul>
-            <li>
-              <strong>Sector comparison:</strong> Catholic and Independent schools generally have higher ICSEA
-              scores, indicating greater socio-educational advantage within their school communities compared
-              to Government schools.
-            </li>
-            <li>
-              <strong>Government sector:</strong> This sector shows the widest variation in scores, with many
-              low-outlier points representing schools serving communities with significantly lower
-              socio-educational advantage.
-            </li>
-            <li>
-              <strong>Understanding the plot:</strong>
-              <ul>
-                <li><strong>Coloured box:</strong> represents the middle 50% of schools in that sector.</li>
-                <li><strong>Horizontal line:</strong> indicates the median score, or typical school, for the sector.</li>
-                <li><strong>Small circles:</strong> represent outlier schools with unusually high or low scores compared to the rest of their sector.</li>
-              </ul>
-            </li>
-          </ul>
-        </aside>
-        <div id="icseaBoxplot" class="vis"></div>
-      </div>
+      <h3>Socio-educational advantage (ICSEA) distribution across school sectors</h3>
+      <p class="chart-subtitle">Higher ICSEA = more advantaged community</p>
+      <div id="icseaViolin" class="vis"></div>
+      <p class="chart-subtitle">Lower ICSEA = more disadvantaged community</p>
       <p class="chart-note">
-        Why this matters: in this chart, Catholic and Independent schools tend to sit higher than Government
-        schools on the ICSEA scale. The low outlier points also show that some schools serve much lower-advantage
-        communities, especially within the Government sector.
+        This shows that wider parts of each violin are where more schools are clustered and
+        higher ICSEA means students at that school generally come from more advantaged backgrounds. 
+        While Catholic and Independent schools cluster tightly above 1,000, with almost no presence below 800.
+        Government schools have a wider spread, with many schools below 1,000 and some above 1,000. This means that Catholic and Independent schools tend to serve more advantaged communities, while Government schools serve a wider range of communities including more disadvantaged ones.
       </p>
     </div>
 
+    <p class="section-transition">
+      Community advantage is not only a sector pattern. It is also geographic. Brushing across ICSEA scores shows
+      where schools serving less advantaged communities are concentrated and how the mix of sectors changes across
+      Australia.
+    </p>
+
     <div class="chart-card">
-      <h3>Are schools approved through the Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) more advantaged?</h3>
-      <p>
-        Each dot is a school. This chart compares schools matched to Commonwealth Register of Institutions and
-        Courses for Overseas Students (CRICOS) locations with other schools, using Index of Community
-        Socio-Educational Advantage (ICSEA) percentile as a measure of school-community advantage.
-      </p>
+      <h3>Where are schools serving different socio-educational communities?</h3>
+      <p class="chart-subtitle">Lower ICSEA = less advantaged communities</p>
+      <iframe
+        class="embedded-chart-frame"
+        src="school_openings_time_brush.html?embedded=1"
+        title="Interactive map of Australian schools by ICSEA score range"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="section-transition">
+      That community advantage gap has a direct consequence for overseas families. The schools available to
+      international students - those with CRICOS registration - are drawn almost entirely from the advantaged end of
+      the scale.
+    </p>
+
+    <div class="chart-card">
+      <h3>Schools open to overseas students are concentrated in Australia's more advantaged communities</h3>
       <div id="cricosIcsea" class="vis"></div>
       <p class="chart-note">
-        Why this matters: Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS)
-        registration means a school or provider location is approved to offer education to overseas students.
-        This does not show overseas student counts, but it shows whether approved schools tend to sit higher or
-        lower on the advantage scale.
+       Not every Australian school is open to overseas students. To legally enrol, a school must hold CRICOS registration and the schools that have it do not reflect Australian schooling as a whole. Across all three sectors, CRICOS-registered schools sit noticeably higher on the community advantage scale than non-registered schools. The gap is largest in government schools, where the median registered school sits 28 percentile points above the median non-registered school. This shows that overseas families looking at public schooling can only choose from government schools in wealthier areas. Independent CRICOS schools sit even higher, with a median at the 92nd percentile. Whichever sector you choose, the schools available to you as an overseas family represent only the more advantaged end of Australian communities.
       </p>
     </div>
+
+    <p class="section-transition">
+      The geographic and international dimensions of advantage are clear. But when you look directly at the
+      socio-economic backgrounds of students within each sector, the divide becomes even harder to ignore.
+    </p>
 
     <div class="chart-card">
       <h3>Do school sectors serve different socio-educational groups?</h3>
       <p>
         Each bar adds up to 100%. It shows the estimated share of students from the bottom, lower-middle,
-        upper-middle and top SEA quarters within each school sector.
+        upper-middle and top Socio-Educational Advantage quarter (SEA) groups within each school sector.
       </p>
       <div id="seaQuarter" class="vis"></div>
+      <div class="sea-quarter-legend" aria-label="Socio-Educational Advantage quarter (SEA)">
+        <div class="sea-quarter-legend-title">Socio-Educational Advantage quarter (SEA)</div>
+        <div class="sea-quarter-legend-items">
+          <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#D95F02;"></span>Bottom SEA quarter</div>
+          <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#FDB863;"></span>Lower middle SEA quarter</div>
+          <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#80CDC1;"></span>Upper middle SEA quarter</div>
+          <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#1B9E77;"></span>Top SEA quarter</div>
+        </div>
+      </div>
       <p class="chart-note">
-        Why this matters: this chart uses each school's SEA quarter percentages and total enrolments to estimate
+        Why this matters: this chart uses each school's Socio-Educational Advantage quarter (SEA) percentages and total enrolments to estimate
         the student mix within each sector. It shows whether sectors serve different socio-educational groups.
       </p>
     </div>
+
+    <p class="section-transition">
+      Socio-economic background is one lens. Language background is another. Schools with higher proportions of
+      students from non-English speaking homes tell a different story about where disadvantage concentrates - and
+      which sector bears the weight of it.
+    </p>
 
     <div class="chart-card">
       <h3>How does Language Background Other Than English vary with the Index of Community Socio-Educational Advantage?</h3>
@@ -448,6 +853,12 @@
       </p>
     </div>
 
+    <p class="section-transition">
+      Language background reflects one dimension of Australia's diversity. For Indigenous students, the pattern of
+      concentration is even more pronounced - and it varies dramatically depending on which state and which sector
+      you look at.
+    </p>
+
     <div class="chart-card">
       <h3>Where are Indigenous enrolments highest?</h3>
       <p>
@@ -460,15 +871,15 @@
         state and school sector. It links place, sector and community background in one view.
       </p>
     </div>
-    <p class="section-takeaway">
-      <strong>Section summary:</strong> Different school sectors serve different student communities. The charts
-      show variation in socio-educational advantage, SEA quarter mix, language background, Indigenous enrolment
-      and CRICOS registration.
+
+    <p class="section-transition">
+      Size matters too. The largest schools in Australia are not evenly distributed across sectors or communities -
+      and the gap in scale between the biggest and smallest schools reflects the same patterns of advantage this story
+      has traced throughout.
     </p>
   </section>
 
   <section>
-    <div class="section-label">Section 4</div>
     <h2>How big are the largest schools?</h2>
     <p>
       The final part of the dashboard adds school size. Size does not mean quality, but it can affect the school
@@ -490,16 +901,11 @@
       </p>
     </div>
 
-    <p class="section-takeaway">
-      <strong>Section summary:</strong> School size adds another layer to the story. The largest schools are not
-      evenly distributed across sectors, and enrolment scale can shape the schooling experience for students.
-    </p>
-
-    <p>
-      Final conclusion: this dashboard does not prove direct cause and effect. It cannot say that location or
-      school sector alone causes a student's educational experience. However, it does show that geography and
-      school type are connected to school access, school choice, socio-educational advantage and student background
-      in Australia.
+    <p class="section-transition">
+      Taken together, these patterns point to the same conclusion the opening question raised: in Australia, where you
+      live and what your family earns still shapes which school you attend, what resources that school has, and who
+      sits beside you in the classroom. The three sectors do not serve three equal slices of Australian society - they
+      serve three different Australias. Understanding that gap is the first step toward addressing it.
     </p>
 
     <p class="source-note">
@@ -513,7 +919,7 @@
   <script>
     const sectorColours = {
       domain: ["Government", "Catholic", "Independent"],
-      range: ["#2F6C99", "#A64D79", "#E6953A"]
+      range: ["#5BC2A8", "#E6863E", "#9A9BD0"]
     };
 
     const remotenessColours = {
@@ -731,10 +1137,7 @@
               "title": "Sector",
               "scale": {
                 "domain": ["Government", "Catholic", "Independent"],
-                "scheme": {
-                  "name": "dark2",
-                  "count": 3
-                }
+                "range": ["#5BC2A8", "#E6863E", "#9A9BD0"]
               },
               "legend": {
                 "orient": "bottom",
@@ -828,9 +1231,7 @@
           }
         },
         { "filter": "isValid(datum.total) && toNumber(datum.total) > 0" },
-        { "calculate": "toNumber(datum.properties.AREASQKM21)", "as": "area_sq_km" },
-        { "filter": "isValid(datum.area_sq_km) && datum.area_sq_km > 0" },
-        { "calculate": "toNumber(datum.total) / datum.area_sq_km", "as": "school_density" }
+        { "calculate": "toNumber(datum.total)", "as": "school_count" }
       ],
       "mark": {
         "type": "geoshape",
@@ -839,30 +1240,266 @@
       },
       "encoding": {
         "color": {
-          "field": "school_density",
+          "field": "school_count",
           "type": "quantitative",
-          "title": "Schools per km²",
+          "title": "Number of schools",
           "scale": {
-            "type": "log",
+            "domain": [1, 100],
+            "clamp": true,
             "scheme": "yelloworangered"
           },
           "legend": {
             "orient": "right",
-            "values": [0.001, 0.01, 0.1, 1],
-            "format": ".3~f"
+            "values": [1, 25, 50, 75, 100],
+            "format": ".0f"
           }
         },
         "tooltip": [
           { "field": "properties.SA3_NAME21", "type": "nominal", "title": "SA3 region" },
           { "field": "properties.STE_NAME21", "type": "nominal", "title": "State" },
           { "field": "remoteness", "type": "nominal", "title": "Remoteness" },
-          { "field": "total", "type": "quantitative", "title": "Total schools", "format": "," },
-          { "field": "school_density", "type": "quantitative", "title": "Schools per km²", "format": ",.3f" },
-          { "field": "area_sq_km", "type": "quantitative", "title": "Region area km²", "format": ",.0f" }
+          { "field": "school_count", "type": "quantitative", "title": "Number of schools", "format": "," }
         ]
       },
       "config": commonConfig
     };
+
+    const twoMapStateCenters = {
+      "All": { center: [134, -27], scale: 760 },
+      "NSW": { center: [151.1, -33.6], scale: 4600 },
+      "VIC": { center: [145.0, -37.7], scale: 6200 },
+      "QLD": { center: [153.0, -27.2], scale: 3600 },
+      "WA": { center: [115.9, -31.8], scale: 4200 },
+      "SA": { center: [138.6, -34.8], scale: 5200 },
+      "TAS": { center: [147.25, -42.45], scale: 7200 },
+      "ACT": { center: [149.1, -35.35], scale: 34000, proportionalScale: 27000 },
+      "NT": { center: [130.9, -12.45], scale: 3600 }
+    };
+
+    const twoMapStateNames = {
+      "All": "All",
+      "NSW": "New South Wales",
+      "VIC": "Victoria",
+      "QLD": "Queensland",
+      "WA": "Western Australia",
+      "SA": "South Australia",
+      "TAS": "Tasmania",
+      "ACT": "Australian Capital Territory",
+      "NT": "Northern Territory"
+    };
+
+    const twoMapSectorColors = {
+      domain: ["Government", "Catholic", "Independent"],
+      range: ["#5BC2A8", "#E6863E", "#9A9BD0"]
+    };
+
+    const twoMapProportionalBase = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 760,
+      "height": 540,
+      "autosize": { "type": "pad", "contains": "padding" },
+      "background": "white",
+      "projection": {
+        "type": "mercator",
+        "center": twoMapStateCenters.All.center,
+        "scale": twoMapStateCenters.All.scale
+      },
+      "layer": [
+        {
+          "data": {
+            "url": "data/SA3_2021_AUST_GDA2020.json",
+            "format": { "type": "topojson", "feature": "SA3_2021_AUST_GDA2020" }
+          },
+          "mark": {
+            "type": "geoshape",
+            "clip": true,
+            "fill": "#eef4f1",
+            "stroke": "#9aabb8",
+            "strokeWidth": 1.2
+          }
+        },
+        {
+          "data": { "url": "data/School_Location_2025.csv" },
+          "transform": [
+            {
+              "lookup": "ACARA SML ID",
+              "from": {
+                "data": { "url": "data/School_Profile_2025.csv" },
+                "key": "ACARA SML ID",
+                "fields": ["Total Enrolments"]
+              }
+            },
+            { "calculate": "toNumber(datum.Latitude)", "as": "lat_value" },
+            { "calculate": "toNumber(datum.Longitude)", "as": "lon_value" },
+            {
+              "calculate": "datum['Total Enrolments'] == null || datum['Total Enrolments'] == '' ? null : toNumber(replace(toString(datum['Total Enrolments']), /,/g, ''))",
+              "as": "enrolments_value"
+            },
+            {
+              "calculate": "datum.enrolments_value <= 500 ? '1-500' : datum.enrolments_value <= 1500 ? '501-1,500' : '1,501-6,248'",
+              "as": "enrolment_class"
+            },
+            {
+              "filter": "isValid(datum.lat_value) && isValid(datum.lon_value) && isValid(datum.enrolments_value) && datum.enrolments_value >= 0"
+            },
+            {
+              "filter": "datum.lon_value >= 112 && datum.lon_value <= 154 && datum.lat_value >= -44 && datum.lat_value <= -9"
+            }
+          ],
+          "mark": {
+            "type": "circle",
+            "filled": true,
+            "clip": true,
+            "opacity": 0.68,
+            "stroke": "#ffffff",
+            "strokeWidth": 0.25
+          },
+          "encoding": {
+            "longitude": { "field": "lon_value", "type": "quantitative" },
+            "latitude": { "field": "lat_value", "type": "quantitative" },
+            "color": {
+              "field": "School Sector",
+              "type": "nominal",
+              "title": "School sector",
+              "scale": twoMapSectorColors,
+              "legend": null
+            },
+            "size": {
+              "field": "enrolment_class",
+              "type": "ordinal",
+              "title": "Enrolments",
+              "scale": {
+                "domain": ["1-500", "501-1,500", "1,501-6,248"],
+                "range": [30, 180, 720]
+              },
+              "legend": null
+            },
+            "order": { "field": "enrolments_value", "type": "quantitative", "sort": "ascending" },
+            "tooltip": [
+              { "field": "School Name", "type": "nominal", "title": "School" },
+              { "field": "Suburb", "type": "nominal", "title": "Suburb" },
+              { "field": "State", "type": "nominal", "title": "State" },
+              { "field": "School Sector", "type": "nominal", "title": "Sector" },
+              { "field": "enrolments_value", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" }
+            ]
+          }
+        }
+      ]
+    };
+
+    const twoMapChoroplethBase = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": 760,
+      "height": 540,
+      "autosize": { "type": "pad", "contains": "padding" },
+      "background": "white",
+      "projection": {
+        "type": "mercator",
+        "center": twoMapStateCenters.All.center,
+        "scale": twoMapStateCenters.All.scale
+      },
+      "data": {
+        "url": "data/SA3_2021_AUST_GDA2020.json",
+        "format": { "type": "topojson", "feature": "SA3_2021_AUST_GDA2020" }
+      },
+      "transform": [
+        {
+          "lookup": "properties.SA3_NAME21",
+          "from": {
+            "data": { "url": "data/school_regions.csv" },
+            "key": "region",
+            "fields": ["total", "state", "remoteness"]
+          }
+        },
+        {
+          "calculate": "isValid(datum.total) && isFinite(toNumber(datum.total)) ? toNumber(datum.total) : null",
+          "as": "school_count"
+        }
+      ],
+      "mark": { "type": "geoshape", "clip": true, "stroke": "white", "strokeWidth": 0.35 },
+      "encoding": {
+        "color": {
+          "field": "school_count",
+          "type": "quantitative",
+          "title": "Number of schools",
+          "scale": {
+            "domain": [1, 100],
+            "clamp": true,
+            "scheme": "yelloworangered"
+          },
+          "legend": null
+        },
+        "tooltip": [
+          { "field": "properties.SA3_NAME21", "type": "nominal", "title": "SA3 region" },
+          { "field": "school_count", "type": "quantitative", "title": "Number of schools", "format": "," }
+        ]
+      }
+    };
+
+    function cloneTwoMapSpec(obj) {
+      if (typeof structuredClone === "function") return structuredClone(obj);
+      return JSON.parse(JSON.stringify(obj));
+    }
+
+    function updateTwoMapEmbeds(stateCode, sector, zoomMultiplier = 1) {
+      const centerCfg = twoMapStateCenters[stateCode] || twoMapStateCenters.All;
+      const stateFull = twoMapStateNames[stateCode] || null;
+      const zoomScale = Number.isFinite(zoomMultiplier) ? zoomMultiplier : 1;
+      const proportionalCenter = centerCfg.proportionalCenter || centerCfg.center;
+      const proportionalScale = centerCfg.proportionalScale || centerCfg.scale;
+      const choroplethCenter = centerCfg.choroplethCenter || centerCfg.center;
+      const choroplethScale = centerCfg.choroplethScale || centerCfg.scale;
+
+      const proportionalSpec = cloneTwoMapSpec(twoMapProportionalBase);
+      proportionalSpec.projection.center = proportionalCenter;
+      proportionalSpec.projection.scale = proportionalScale * zoomScale;
+
+      if (stateCode && stateCode !== "All" && stateFull) {
+        const safeName = stateFull.replace(/'/g, "\\'");
+        proportionalSpec.layer[0].transform = [{ filter: `datum.properties && datum.properties.STE_NAME21 == '${safeName}'` }];
+      }
+
+      const points = proportionalSpec.layer[1];
+      const pointFilters = [];
+      if (stateCode && stateCode !== "All") {
+        pointFilters.push({ filter: `datum.State == '${stateCode}'` });
+      }
+      if (sector && sector !== "All") {
+        pointFilters.push({ filter: `datum['School Sector'] == '${sector}'` });
+      }
+      points.transform = pointFilters.concat(points.transform || []);
+
+      const choroplethSpec = cloneTwoMapSpec(twoMapChoroplethBase);
+      choroplethSpec.projection.center = choroplethCenter;
+      choroplethSpec.projection.scale = choroplethScale * zoomScale;
+
+      if (stateCode && stateCode !== "All" && stateFull) {
+        const safeName = stateFull.replace(/'/g, "\\'");
+        choroplethSpec.transform = [{ filter: `datum.properties && datum.properties.STE_NAME21 == '${safeName}'` }].concat(choroplethSpec.transform || []);
+      }
+
+      vegaEmbed("#mapProportional", proportionalSpec, embedOptions).catch(error => console.error(error));
+      vegaEmbed("#mapChoropleth", choroplethSpec, embedOptions).catch(error => console.error(error));
+    }
+
+    function setupTwoMapControls() {
+      const stateSelect = document.getElementById("twoMapStateSelect");
+      const sectorSelect = document.getElementById("twoMapSectorSelect");
+      const zoomSlider = document.getElementById("twoMapZoomSlider");
+      const zoomValue = document.getElementById("twoMapZoomValue");
+
+      function refreshTwoMaps() {
+        const zoom = parseFloat(zoomSlider.value);
+        zoomValue.textContent = `${zoom.toFixed(2)}x`;
+        updateTwoMapEmbeds(stateSelect.value, sectorSelect.value, zoom);
+      }
+
+      stateSelect.addEventListener("change", refreshTwoMaps);
+      sectorSelect.addEventListener("change", refreshTwoMaps);
+      zoomSlider.addEventListener("input", refreshTwoMaps);
+
+      refreshTwoMaps();
+    }
 
     const sectorDonutSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -906,7 +1543,7 @@
               "type": "nominal",
               "title": "School sector",
               "scale": sectorColours,
-              "legend": { "orient": "right" }
+              "legend": null
             },
             "tooltip": [
               { "field": "School Sector", "type": "nominal", "title": "Sector" },
@@ -977,7 +1614,7 @@
             "domain": ["Primary", "Secondary", "Combined", "Special"],
             "range": ["#4C78A8", "#F58518", "#54A24B", "#B279A2"]
           },
-          "legend": { "orient": "right" }
+          "legend": null
         },
         "order": {
           "field": "type_order",
@@ -1082,7 +1719,7 @@
 
     const studentTeacherResourcingSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 760,
+      "width": 470,
       "height": 420,
       "background": "white",
       "data": { "url": "data/School_Profile_2025.csv" },
@@ -1153,9 +1790,9 @@
               "title": "School sector",
               "scale": {
                 "domain": ["Government", "Catholic", "Independent"],
-                "range": ["#1B9E77", "#D95F02", "#7570B3"]
+                "range": ["#5BC2A8", "#E6863E", "#9A9BD0"]
               },
-              "legend": { "orient": "right" }
+              "legend": null
             },
             "detail": { "field": "School Sector", "type": "nominal" },
             "order": { "field": "remoteness_order", "type": "quantitative", "sort": "ascending" },
@@ -1183,7 +1820,7 @@
               "type": "nominal",
               "scale": {
                 "domain": ["Government", "Catholic", "Independent"],
-                "range": ["#1B9E77", "#D95F02", "#7570B3"]
+                "range": ["#5BC2A8", "#E6863E", "#9A9BD0"]
               },
               "legend": null
             },
@@ -1201,10 +1838,10 @@
       "config": commonConfig
     };
 
-    const icseaBoxplotSpec = {
+    const teacherCountRemotenessSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": 700,
-      "height": 430,
+      "width": 470,
+      "height": 420,
       "background": "white",
       "data": { "url": "data/School_Profile_2025.csv" },
       "transform": [
@@ -1212,44 +1849,555 @@
           "filter": "datum['School Sector'] == 'Government' || datum['School Sector'] == 'Catholic' || datum['School Sector'] == 'Independent'"
         },
         {
-          "calculate": "datum['ICSEA'] != null && datum['ICSEA'] != '' ? parseFloat(datum['ICSEA']) : null",
-          "as": "icsea_value"
+          "lookup": "ACARA SML ID",
+          "from": {
+            "data": { "url": "data/School_Location_2025.csv" },
+            "key": "ACARA SML ID",
+            "fields": ["ABS Remoteness Area Name"]
+          }
         },
-        { "filter": "isValid(datum.icsea_value) && datum.icsea_value > 0" }
+        {
+          "filter": "datum['ABS Remoteness Area Name'] == 'Major Cities' || datum['ABS Remoteness Area Name'] == 'Inner Regional' || datum['ABS Remoteness Area Name'] == 'Outer Regional' || datum['ABS Remoteness Area Name'] == 'Remote' || datum['ABS Remoteness Area Name'] == 'Very Remote'"
+        },
+        {
+          "calculate": "datum['Full Time Equivalent Teaching Staff'] != null && datum['Full Time Equivalent Teaching Staff'] != '' ? toNumber(replace(toString(datum['Full Time Equivalent Teaching Staff']), /,/g, '')) : null",
+          "as": "fte_teaching_staff"
+        },
+        {
+          "filter": "isValid(datum.fte_teaching_staff) && datum.fte_teaching_staff > 0"
+        },
+        {
+          "aggregate": [
+            { "op": "sum", "field": "fte_teaching_staff", "as": "total_fte_teachers" },
+            { "op": "count", "as": "school_count" }
+          ],
+          "groupby": ["School Sector", "ABS Remoteness Area Name"]
+        },
+        {
+          "calculate": "datum['ABS Remoteness Area Name'] == 'Major Cities' ? 1 : datum['ABS Remoteness Area Name'] == 'Inner Regional' ? 2 : datum['ABS Remoteness Area Name'] == 'Outer Regional' ? 3 : datum['ABS Remoteness Area Name'] == 'Remote' ? 4 : datum['ABS Remoteness Area Name'] == 'Very Remote' ? 5 : 6",
+          "as": "remoteness_order"
+        }
       ],
       "mark": {
-        "type": "boxplot",
-        "extent": 1.5,
-        "size": 70
+        "type": "bar"
       },
       "encoding": {
         "x": {
+          "field": "ABS Remoteness Area Name",
+          "type": "nominal",
+          "title": "Remoteness",
+          "sort": { "field": "remoteness_order", "order": "ascending" },
+          "axis": { "labelAngle": -25, "labelAlign": "right" }
+        },
+        "xOffset": {
           "field": "School Sector",
           "type": "nominal",
-          "title": "School sector",
-          "sort": ["Government", "Catholic", "Independent"],
-          "axis": { "labelAngle": 0 }
+          "sort": ["Government", "Catholic", "Independent"]
         },
         "y": {
-          "field": "icsea_value",
+          "field": "total_fte_teachers",
           "type": "quantitative",
-          "title": "Index of Community Socio-Educational Advantage score",
-          "scale": { "zero": false }
+          "title": "Full-time-equivalent (FTE) teaching staff"
         },
         "color": {
           "field": "School Sector",
           "type": "nominal",
-          "scale": sectorColours,
+          "title": "School sector",
+          "scale": {
+            "domain": ["Government", "Catholic", "Independent"],
+            "range": ["#5BC2A8", "#E6863E", "#9A9BD0"]
+          },
           "legend": null
-        }
+        },
+        "tooltip": [
+          { "field": "School Sector", "type": "nominal", "title": "School sector" },
+          { "field": "ABS Remoteness Area Name", "type": "nominal", "title": "Remoteness" },
+          { "field": "total_fte_teachers", "type": "quantitative", "title": "Full-time-equivalent (FTE) teaching staff", "format": ",.1f" },
+          { "field": "school_count", "type": "quantitative", "title": "Schools", "format": "," }
+        ]
       },
       "config": commonConfig
+    };
+
+    const icseaViolinSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "background": "white",
+      "spacing": 12,
+      "data": { "url": "data/School_Profile_2025.csv" },
+      "transform": [
+        {
+          "filter": "indexof(['Government', 'Catholic', 'Independent'], datum['School Sector']) >= 0"
+        },
+        {
+          "calculate": "toNumber(datum['ICSEA'])",
+          "as": "icsea_value"
+        },
+        { "filter": "isValid(datum.icsea_value) && datum.icsea_value > 0" }
+      ],
+      "facet": {
+        "column": {
+          "field": "School Sector",
+          "type": "nominal",
+          "sort": ["Government", "Catholic", "Independent"],
+          "title": null,
+          "header": {
+            "labelFont": "Georgia",
+            "labelFontSize": 20,
+            "labelFontWeight": "normal",
+            "labelColor": "#111111",
+            "labelPadding": 12
+          }
+        }
+      },
+      "spec": {
+        "width": 235,
+        "height": 480,
+        "layer": [
+          {
+            "transform": [
+              {
+                "density": "icsea_value",
+                "groupby": ["School Sector"],
+                "extent": [400, 1300],
+                "steps": 180,
+                "as": ["icsea_score", "density"]
+              }
+            ],
+            "mark": {
+              "type": "area",
+              "orient": "horizontal",
+              "opacity": 0.58,
+              "stroke": "#111111",
+              "strokeOpacity": 0.28,
+              "strokeWidth": 1
+            },
+            "encoding": {
+              "y": {
+                "field": "icsea_score",
+                "type": "quantitative",
+                "title": "Index of Community Socio-Educational Advantage score",
+                "scale": {
+                  "domain": [400, 1300],
+                  "zero": false
+                },
+                "axis": {
+                  "grid": true,
+                  "tickCount": 10,
+                  "labelFontSize": 13,
+                  "titleFontSize": 15,
+                  "titlePadding": 12
+                }
+              },
+              "x": {
+                "field": "density",
+                "type": "quantitative",
+                "stack": "center",
+                "axis": null,
+                "title": null
+              },
+              "color": {
+                "field": "School Sector",
+                "type": "nominal",
+                "scale": {
+                  "domain": ["Government", "Catholic", "Independent"],
+                  "range": ["#5BC2A8", "#E6863E", "#9A9BD0"]
+                },
+                "legend": null
+              },
+              "tooltip": [
+                { "field": "School Sector", "type": "nominal", "title": "School sector" },
+                { "field": "icsea_score", "type": "quantitative", "title": "ICSEA score", "format": ".0f" },
+                { "field": "density", "type": "quantitative", "title": "Density", "format": ".4f" }
+              ]
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Government'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [4, 4],
+              "strokeWidth": 1.2
+            },
+            "encoding": {
+              "y": { "datum": 925, "type": "quantitative" },
+              "y2": { "datum": 982 },
+              "x": { "value": 114 },
+              "x2": { "value": 114 }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Government'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 925, "type": "quantitative" },
+              "x": { "value": 118 },
+              "text": { "value": "Most government\nschools cluster here" }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Catholic'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [4, 4],
+              "strokeWidth": 1.2
+            },
+            "encoding": {
+              "y": { "datum": 990, "type": "quantitative" },
+              "y2": { "datum": 1046 },
+              "x": { "value": 114 },
+              "x2": { "value": 114 }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Catholic'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 990, "type": "quantitative" },
+              "x": { "value": 118 },
+              "text": { "value": "Most Catholic\nschools cluster here" }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Independent'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [4, 4],
+              "strokeWidth": 1.2
+            },
+            "encoding": {
+              "y": { "datum": 1010, "type": "quantitative" },
+              "y2": { "datum": 1066 },
+              "x": { "value": 114 },
+              "x2": { "value": 114 }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Independent'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 1010, "type": "quantitative" },
+              "x": { "value": 118 },
+              "text": { "value": "Most Independent\nschools cluster here" }
+            }
+          },
+          {
+            "transform": [
+              {
+                "filter": "datum['School Sector'] == 'Government' && datum.icsea_value <= 700"
+              },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "low_tail_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [5, 4],
+              "strokeWidth": 1.4
+            },
+            "encoding": {
+              "y": { "datum": 660, "type": "quantitative" },
+              "y2": { "datum": 700 },
+              "x": { "value": 132 },
+              "x2": { "value": 104 }
+            }
+          },
+          {
+            "transform": [
+              {
+                "filter": "datum['School Sector'] == 'Government' && datum.icsea_value <= 700"
+              },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "low_tail_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 660, "type": "quantitative" },
+              "x": { "value": 136 },
+              "text": {
+                "value": "Small lower tail\n2% <=700 ICSEA\nMostly remote"
+              }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Catholic'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [5, 4],
+              "strokeWidth": 1.4
+            },
+            "encoding": {
+              "y": { "datum": 755, "type": "quantitative" },
+              "y2": { "datum": 800 },
+              "x": { "value": 150 },
+              "x2": { "value": 118 }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Catholic'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 11,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 742, "type": "quantitative" },
+              "x": { "value": 152 },
+              "text": {
+                "value": "Catholic:\nfew below 800"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  {
+                    "op": "median",
+                    "field": "icsea_value",
+                    "as": "median_icsea"
+                  }
+                ],
+                "groupby": ["School Sector"]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#111111",
+              "strokeWidth": 3
+            },
+            "encoding": {
+              "y": { "field": "median_icsea", "type": "quantitative" },
+              "x": { "value": 70 },
+              "x2": { "value": 145 },
+              "tooltip": [
+                { "field": "School Sector", "type": "nominal", "title": "School sector" },
+                { "field": "median_icsea", "type": "quantitative", "title": "Median ICSEA", "format": ".0f" }
+              ]
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  {
+                    "op": "median",
+                    "field": "icsea_value",
+                    "as": "median_icsea"
+                  }
+                ],
+                "groupby": ["School Sector"]
+              },
+              {
+                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "as": "median_label"
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 12,
+              "fontWeight": "bold",
+              "color": "#8C1D40"
+            },
+            "encoding": {
+              "y": { "field": "median_icsea", "type": "quantitative" },
+              "x": { "value": 150 },
+              "text": { "field": "median_label", "type": "nominal" }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Independent'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [5, 4],
+              "strokeWidth": 1.4
+            },
+            "encoding": {
+              "y": { "datum": 755, "type": "quantitative" },
+              "y2": { "datum": 800 },
+              "x": { "value": 150 },
+              "x2": { "value": 118 }
+            }
+          },
+          {
+            "transform": [
+              { "filter": "datum['School Sector'] == 'Independent'" },
+              {
+                "aggregate": [
+                  { "op": "count", "as": "sector_count" }
+                ]
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "font": "Arial",
+              "fontSize": 11,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#222222"
+            },
+            "encoding": {
+              "y": { "datum": 742, "type": "quantitative" },
+              "x": { "value": 152 },
+              "text": {
+                "value": "Independent:\nfew below 800"
+              }
+            }
+          }
+        ]
+      },
+      "resolve": {
+        "scale": {
+          "x": "independent"
+        }
+      },
+      "config": {
+        "view": { "stroke": null },
+        "axis": {
+          "domainColor": "#999999",
+          "gridColor": "#dedede",
+          "labelFont": "Arial",
+          "titleFont": "Arial",
+          "labelColor": "#111111",
+          "titleColor": "#111111"
+        }
+      }
     };
 
     const cricosIcseaSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "background": "white",
+      "spacing": 10,
       "data": { "url": "data/school_cricos_icsea.csv" },
+      "transform": [
+        {
+          "calculate": "datum['CRICOS Status'] == 'Not registered' ? 0.62 : 1.58",
+          "as": "cricos_x"
+        },
+        {
+          "calculate": "datum.cricos_x + datum.Jitter * 0.46",
+          "as": "cricos_x_jitter"
+        }
+      ],
       "facet": {
         "column": {
           "field": "School Sector",
@@ -1264,34 +2412,23 @@
         }
       },
       "spec": {
-        "width": 240,
+        "width": 205,
         "height": 360,
         "layer": [
           {
             "mark": {
               "type": "circle",
               "filled": true,
-              "size": 22,
-              "opacity": 0.32
+              "size": 12,
+              "opacity": 0.26
             },
             "encoding": {
               "x": {
-                "field": "CRICOS Status",
-                "type": "nominal",
-                "title": null,
-                "sort": ["Not registered", "CRICOS registered"],
-                "axis": {
-                  "labelAngle": 0,
-                  "labelLimit": 105
-                }
-              },
-              "xOffset": {
-                "field": "Jitter",
+                "field": "cricos_x_jitter",
                 "type": "quantitative",
-                "scale": {
-                  "domain": [-0.36, 0.36],
-                  "range": [-42, 42]
-                }
+                "title": null,
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
               },
               "y": {
                 "field": "ICSEA Percentile",
@@ -1327,33 +2464,356 @@
             }
           },
           {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status", "cricos_x"]
+              },
+              {
+                "calculate": "datum.cricos_x - 0.16",
+                "as": "median_x_start"
+              },
+              {
+                "calculate": "datum.cricos_x + 0.16",
+                "as": "median_x_end"
+              }
+            ],
             "mark": {
-              "type": "tick",
+              "type": "rule",
               "color": "#111111",
-              "thickness": 4,
-              "size": 88
+              "strokeWidth": 4
             },
             "encoding": {
               "x": {
-                "field": "CRICOS Status",
-                "type": "nominal",
-                "sort": ["Not registered", "CRICOS registered"]
+                "field": "median_x_start",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "x2": {
+                "field": "median_x_end"
               },
               "y": {
-                "aggregate": "median",
-                "field": "ICSEA Percentile",
+                "field": "median_icsea",
                 "type": "quantitative"
               },
               "tooltip": [
                 { "field": "CRICOS Status", "type": "nominal", "title": "Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) status" },
-                { "aggregate": "median", "field": "ICSEA Percentile", "type": "quantitative", "title": "Median Index of Community Socio-Educational Advantage (ICSEA) percentile", "format": ".1f" }
+                { "field": "median_icsea", "type": "quantitative", "title": "Median Index of Community Socio-Educational Advantage (ICSEA) percentile", "format": ".1f" }
               ]
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status", "cricos_x"]
+              },
+              {
+                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "as": "median_label"
+              },
+              {
+                "filter": "datum['CRICOS Status'] == 'Not registered'"
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [4, 4],
+              "strokeWidth": 1.2
+            },
+            "encoding": {
+              "x": {
+                "field": "cricos_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "xOffset": { "value": 26 },
+              "x2": {
+                "field": "cricos_x",
+                "type": "quantitative"
+              },
+              "x2Offset": { "value": 34 },
+              "y": {
+                "field": "median_icsea",
+                "type": "quantitative"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status", "cricos_x"]
+              },
+              {
+                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "as": "median_label"
+              },
+              {
+                "filter": "datum['CRICOS Status'] == 'CRICOS registered'"
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#333333",
+              "strokeDash": [4, 4],
+              "strokeWidth": 1.2
+            },
+            "encoding": {
+              "x": {
+                "field": "cricos_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "xOffset": { "value": -26 },
+              "x2": {
+                "field": "cricos_x",
+                "type": "quantitative"
+              },
+              "x2Offset": { "value": -34 },
+              "y": {
+                "field": "median_icsea",
+                "type": "quantitative"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status", "cricos_x"]
+              },
+              {
+                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "as": "median_label"
+              },
+              {
+                "filter": "datum['CRICOS Status'] == 'Not registered'"
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "dx": 36,
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "color": "#333333"
+            },
+            "encoding": {
+              "x": {
+                "field": "cricos_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "y": {
+                "field": "median_icsea",
+                "type": "quantitative"
+              },
+              "text": {
+                "field": "median_label",
+                "type": "nominal"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status", "cricos_x"]
+              },
+              {
+                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "as": "median_label"
+              },
+              {
+                "filter": "datum['CRICOS Status'] == 'CRICOS registered'"
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "right",
+              "baseline": "middle",
+              "dx": -36,
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "color": "#333333"
+            },
+            "encoding": {
+              "x": {
+                "field": "cricos_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "y": {
+                "field": "median_icsea",
+                "type": "quantitative"
+              },
+              "text": {
+                "field": "median_label",
+                "type": "nominal"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status"]
+              },
+              {
+                "pivot": "CRICOS Status",
+                "value": "median_icsea"
+              },
+              {
+                "calculate": "datum['Not registered']",
+                "as": "gap_low"
+              },
+              {
+                "calculate": "datum['CRICOS registered']",
+                "as": "gap_high"
+              },
+              {
+                "calculate": "1.82",
+                "as": "annotation_x"
+              }
+            ],
+            "mark": {
+              "type": "rule",
+              "color": "#8C1D40",
+              "strokeWidth": 2
+            },
+            "encoding": {
+              "x": {
+                "field": "annotation_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "y": {
+                "field": "gap_low",
+                "type": "quantitative"
+              },
+              "y2": {
+                "field": "gap_high"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status"]
+              },
+              {
+                "pivot": "CRICOS Status",
+                "value": "median_icsea"
+              },
+              {
+                "calculate": "1.82",
+                "as": "annotation_x"
+              },
+              {
+                "fold": ["Not registered", "CRICOS registered"],
+                "as": ["gap_status", "gap_marker"]
+              }
+            ],
+            "mark": {
+              "type": "tick",
+              "color": "#8C1D40",
+              "thickness": 2,
+              "size": 16
+            },
+            "encoding": {
+              "x": {
+                "field": "annotation_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "y": {
+                "field": "gap_marker",
+                "type": "quantitative"
+              }
+            }
+          },
+          {
+            "transform": [
+              {
+                "aggregate": [
+                  { "op": "median", "field": "ICSEA Percentile", "as": "median_icsea" }
+                ],
+                "groupby": ["CRICOS Status"]
+              },
+              {
+                "pivot": "CRICOS Status",
+                "value": "median_icsea"
+              },
+              {
+                "calculate": "(datum['Not registered'] + datum['CRICOS registered']) / 2",
+                "as": "gap_mid"
+              },
+              {
+                "calculate": "1.82",
+                "as": "annotation_x"
+              },
+              {
+                "calculate": "format(abs(datum['CRICOS registered'] - datum['Not registered']), '.0f') + ' percentile\\npoint gap'",
+                "as": "gap_label"
+              }
+            ],
+            "mark": {
+              "type": "text",
+              "align": "left",
+              "baseline": "middle",
+              "dx": 8,
+              "fontSize": 10,
+              "fontWeight": "bold",
+              "lineBreak": "\n",
+              "color": "#8C1D40"
+            },
+            "encoding": {
+              "x": {
+                "field": "annotation_x",
+                "type": "quantitative",
+                "scale": { "domain": [0.25, 1.95] },
+                "axis": null
+              },
+              "y": {
+                "field": "gap_mid",
+                "type": "quantitative"
+              },
+              "text": {
+                "field": "gap_label",
+                "type": "nominal"
+              }
             }
           }
         ]
       },
       "resolve": {
         "scale": {
+          "x": "shared",
           "y": "shared",
           "color": "shared"
         }
@@ -1408,50 +2868,90 @@
           "joinaggregate": [{ "op": "sum", "field": "student_count", "as": "sector_total_students" }],
           "groupby": ["School Sector"]
         },
-        { "calculate": "datum.student_count / datum.sector_total_students", "as": "sea_share" }
+        { "calculate": "datum.student_count / datum.sector_total_students", "as": "sea_share" },
+        {
+          "window": [{ "op": "sum", "field": "sea_share", "as": "cumulative_share" }],
+          "sort": [{ "field": "sea_order", "order": "ascending" }],
+          "groupby": ["School Sector"]
+        },
+        { "calculate": "datum.cumulative_share - datum.sea_share / 2", "as": "sea_label_y" }
       ],
-      "mark": {
-        "type": "bar",
-        "cornerRadiusTopLeft": 2,
-        "cornerRadiusTopRight": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "School Sector",
-          "type": "nominal",
-          "title": "School sector",
-          "sort": ["Government", "Catholic", "Independent"],
-          "axis": { "labelAngle": 0 }
-        },
-        "y": {
-          "field": "sea_share",
-          "type": "quantitative",
-          "title": "Share of students",
-          "axis": { "format": ".0%" },
-          "stack": "zero"
-        },
-        "color": {
-          "field": "sea_group",
-          "type": "nominal",
-          "title": "SEA quarter",
-          "scale": {
-            "domain": ["Bottom SEA quarter", "Lower middle SEA quarter", "Upper middle SEA quarter", "Top SEA quarter"],
-            "range": ["#D95F02", "#FDB863", "#80CDC1", "#1B9E77"]
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "cornerRadiusTopLeft": 2,
+            "cornerRadiusTopRight": 2
           },
-          "legend": { "orient": "right" }
+          "encoding": {
+            "x": {
+              "field": "School Sector",
+              "type": "nominal",
+              "title": "School sector",
+              "sort": ["Government", "Catholic", "Independent"],
+              "axis": { "labelAngle": 0 }
+            },
+            "y": {
+              "field": "sea_share",
+              "type": "quantitative",
+              "title": "Share of students",
+              "axis": { "format": ".0%" },
+              "stack": "zero"
+            },
+            "color": {
+              "field": "sea_group",
+              "type": "nominal",
+              "title": "Socio-Educational Advantage quarter (SEA)",
+              "scale": {
+                "domain": ["Bottom SEA quarter", "Lower middle SEA quarter", "Upper middle SEA quarter", "Top SEA quarter"],
+                "range": ["#D95F02", "#FDB863", "#80CDC1", "#1B9E77"]
+              },
+              "legend": null
+            },
+            "order": {
+              "field": "sea_order",
+              "type": "quantitative",
+              "sort": "ascending"
+            },
+            "tooltip": [
+              { "field": "School Sector", "type": "nominal", "title": "School sector" },
+              { "field": "sea_group", "type": "nominal", "title": "Socio-Educational Advantage quarter (SEA)" },
+              { "field": "student_count", "type": "quantitative", "title": "Estimated students", "format": ",.0f" },
+              { "field": "sea_share", "type": "quantitative", "title": "Share within sector", "format": ".1%" }
+            ]
+          }
         },
-        "order": {
-          "field": "sea_order",
-          "type": "quantitative",
-          "sort": "ascending"
-        },
-        "tooltip": [
-          { "field": "School Sector", "type": "nominal", "title": "School sector" },
-          { "field": "sea_group", "type": "nominal", "title": "SEA quarter" },
-          { "field": "student_count", "type": "quantitative", "title": "Estimated students", "format": ",.0f" },
-          { "field": "sea_share", "type": "quantitative", "title": "Share within sector", "format": ".1%" }
-        ]
-      },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 14,
+            "fontWeight": "bold"
+          },
+          "encoding": {
+            "x": {
+              "field": "School Sector",
+              "type": "nominal",
+              "sort": ["Government", "Catholic", "Independent"]
+            },
+            "y": {
+              "field": "sea_label_y",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "sea_share",
+              "type": "quantitative",
+              "format": ".1%"
+            },
+            "color": { "value": "black" },
+            "tooltip": [
+              { "field": "School Sector", "type": "nominal", "title": "School sector" },
+              { "field": "sea_group", "type": "nominal", "title": "Socio-Educational Advantage quarter (SEA)" },
+              { "field": "student_count", "type": "quantitative", "title": "Estimated students", "format": ",.0f" },
+              { "field": "sea_share", "type": "quantitative", "title": "Share within sector", "format": ".1%" }
+            ]
+          }
+        }
+      ],
       "config": commonConfig
     };
 
@@ -1509,7 +3009,10 @@
               "type": "nominal",
               "title": "School sector",
               "scale": sectorColours,
-              "legend": { "orient": "right" }
+              "legend": {
+                "orient": "right",
+                "symbolOpacity": 1
+              }
             },
             "tooltip": [
               { "field": "School Name", "type": "nominal", "title": "School" },
@@ -1773,8 +3276,8 @@
         {
           "name": "sectorColor",
           "type": "ordinal",
-          "domain": ["Government", "Catholic", "Independent"],
-          "range": sectorColours.range
+          "domain": ["Government", "Independent"],
+          "range": ["#5BC2A8", "#9A9BD0"]
         }
       ],
 
@@ -1916,13 +3419,13 @@
       actions: false
     };
 
-    vegaEmbed("#mapSymbol", mapSymbolSpec, embedOptions);
-    vegaEmbed("#mapAccess", mapAccessSpec, embedOptions);
+    setupTwoMapControls();
     vegaEmbed("#sectorDonut", sectorDonutSpec, embedOptions);
     vegaEmbed("#schoolTypeState", schoolTypeStateSpec, embedOptions);
     vegaEmbed("#remotenessHeatmap", remotenessHeatmapSpec, embedOptions);
     vegaEmbed("#studentTeacherResourcing", studentTeacherResourcingSpec, embedOptions);
-    vegaEmbed("#icseaBoxplot", icseaBoxplotSpec, embedOptions);
+    vegaEmbed("#teacherCountRemoteness", teacherCountRemotenessSpec, embedOptions);
+    vegaEmbed("#icseaViolin", icseaViolinSpec, embedOptions);
     vegaEmbed("#cricosIcsea", cricosIcseaSpec, embedOptions);
     vegaEmbed("#seaQuarter", seaQuarterSpec, embedOptions);
     vegaEmbed("#lboteScatter", lboteScatterSpec, embedOptions);
