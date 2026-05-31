@@ -16,6 +16,12 @@
       color: #111;
     }
 
+    table,
+    th,
+    td {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
     header {
       max-width: 1050px;
       margin: 0 auto;
@@ -35,6 +41,7 @@
       margin: 0 0 16px 0;
       font-weight: 400;
       color: #111111;
+      text-align: center;
     }
 
     h2 {
@@ -43,6 +50,7 @@
       margin: 20px 0 8px 0;
       font-weight: 400;
       color: #111111;
+      text-align: center;
     }
 
     .act-section + .act-section {
@@ -54,8 +62,9 @@
       font-size: 38px;
       line-height: 1.12;
       margin: 16px 0 12px 0;
-      font-weight: 700;
+      font-weight: 400;
       color: #111111;
+      text-align: center;
     }
 
     h3 {
@@ -64,6 +73,7 @@
       margin: 0 0 8px 0;
       font-weight: 400;
       color: #111111;
+      text-align: center;
     }
 
     p {
@@ -71,27 +81,22 @@
       line-height: 1.55;
       color: #555;
       max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
     .intro {
       font-size: 16px;
       color: #555;
       max-width: 900px;
+      text-align: center;
     }
 
     .section-transition {
       font-size: 20px;
       line-height: 1.65;
       max-width: 1100px;
-    }
-
-    .section-label {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #777;
-      margin-bottom: 8px;
-      font-weight: 700;
     }
 
     .chart-card {
@@ -105,10 +110,10 @@
 
     .chart-note {
       max-width: 900px;
-      font-size: 14px;
+      font-size: 16px;
       color: #555;
       margin-top: 14px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .icsea-brush-vis {
@@ -168,6 +173,9 @@
       color: #555;
       font-size: 15px;
       line-height: 1.4;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
     }
 
     .section-takeaway {
@@ -437,6 +445,11 @@
       transform: translateX(-32px);
     }
 
+    #indigenousChart.vega-embed,
+    #indigenousChart .vega-embed {
+      transform: translateX(-32px);
+    }
+
     .vis-centered .vega-embed svg,
     .vis-centered .vega-embed canvas,
     .vis-centered.vega-embed svg,
@@ -562,6 +575,77 @@
       flex: 0 0 10px;
     }
 
+    .top-enrolment-sector-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 10px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .top-enrolment-sector-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .top-enrolment-sector-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .top-enrolment-sector-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .top-enrolment-sector-swatch {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      flex: 0 0 10px;
+      border-radius: 50%;
+    }
+
+    .indigenous-sector-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 10px auto 0 auto;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .indigenous-sector-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .indigenous-sector-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .indigenous-sector-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .indigenous-sector-swatch {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      flex: 0 0 10px;
+    }
+
     @media (max-width: 620px) {
       .sea-quarter-legend-items {
         grid-template-columns: 1fr;
@@ -589,12 +673,68 @@
       padding: 2px 28px 2px 6px;
       font: inherit;
     }
+
+    .lbote-filter-slot {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin: 12px auto;
+    }
+
+    .lbote-filter-slot .vega-bindings {
+      display: flex;
+      justify-content: center;
+      width: auto;
+      margin-top: 0;
+    }
+
+    .lbote-sector-legend {
+      width: fit-content;
+      margin: 12px auto 0;
+    }
+
+    .cricos-status-legend {
+      width: fit-content;
+      max-width: 100%;
+      margin: 12px auto 0;
+      color: #111111;
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .cricos-status-legend-title {
+      margin-bottom: 6px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .cricos-status-legend-items {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+    }
+
+    .cricos-status-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .cricos-status-swatch {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      flex: 0 0 10px;
+      border-radius: 50%;
+    }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="section-label">FIT2179 Data Visualisation 2</div>
     <h1>Does where you live shape the schools and student communities around you?</h1>
     <p class="intro">
       Australian schools are not evenly spread across the country. Some students live in places with many nearby
@@ -715,7 +855,7 @@
       </div>
       <p class="chart-note">
         Government schools make up the largest share of Australian schools, while Catholic and Independent schools form smaller but still important
-        parts of the system.
+        parts of the system. This means that most students attend government schools, but a significant number of students also attend Catholic and Independent schools, which can offer different educational approaches, resources and communities compared to government schools.
       </p>
     </div>
 
@@ -753,16 +893,12 @@
 
     <p class="section-transition">
       Beyond what types of schools exist, there are also differences in what resources those schools have. One of the
-      most direct measures is how many students share each teacher - a gap that plays out differently across sectors
+      most direct measures is how many students share each teacher. This varies significantly across sectors
       and locations.
     </p>
 
     <div class="chart-card">
-      <h3>How many students are there per teacher across sectors and locations?</h3>
-      <p>
-        This connected dot plot compares students per full-time-equivalent (FTE) teaching staff member across
-        school sectors and remoteness areas.
-      </p>
+      <h3>Teaching resources vary by sector and remoteness</h3>
       <div class="side-by-side-charts">
         <div>
           <h4 class="side-chart-title">Students per teacher</h4>
@@ -770,7 +906,7 @@
         </div>
 
         <div>
-          <h4 class="side-chart-title">Total FTE teaching staff</h4>
+          <h4 class="side-chart-title">Total teaching staff</h4>
           <div id="teacherCountRemoteness" class="vis"></div>
         </div>
 
@@ -784,26 +920,49 @@
         </div>
       </div>
       <p class="chart-note">
-        Why this matters: access is not only about school numbers. Student-teacher ratios add a resourcing layer,
-        although they do not directly measure class size or school quality.
+          At first, very remote areas appear to have fewer students per teacher. However, this does not automatically mean that very 
+  remote schools are better resourced. Many remote schools are small, so the student-teacher ratio can look low even when the 
+  total number of teachers is much smaller. The bar chart on the right helps show this context in which most teaching staff are still 
+  concentrated in major cities, where most schools and students are located. Student-teacher ratios add another layer to school access. Remote schools may have fewer students 
+  per teacher, but they also operate with a much smaller total teaching workforce.
+      </p>
+    </div>
+
+  </section>
+
+  <section>
+    <h2 class="act-heading">School size adds another layer to the school experience</h2>
+    <p>
+      School systems also differ by scale. A school of 6000 students offers a very different experience from one of 300 in facilities, subject choices, and community feel.
+    </p>
+
+    <div class="chart-card">
+      <h3>Which schools have the largest enrolments?</h3>
+      <div id="topEnrolment" class="vis vis-centered"></div>
+      <div class="top-enrolment-sector-legend" aria-label="School sector">
+        <div class="top-enrolment-sector-legend-title">School sector</div>
+        <div class="top-enrolment-sector-legend-items">
+          <div class="top-enrolment-sector-legend-item"><span class="top-enrolment-sector-swatch" style="background:#5BC2A8;"></span>Government</div>
+          <div class="top-enrolment-sector-legend-item"><span class="top-enrolment-sector-swatch" style="background:#9A9BD0;"></span>Independent</div>
+        </div>
+      </div>
+      <p class="chart-note">
+        Each rectangle represents one large school, with size showing total enrolments and colour showing school sector. The largest schools are mostly split between Government and Independent schools. Several large Government schools are distance education or large state colleges, while many large Independent schools are high-enrolment private schools. No Catholic schools appear in the top 20. This shows that the largest school campuses are not evenly spread across sectors.
       </p>
     </div>
 
     <p class="section-transition">
-      Resources tell part of the story. But the deeper question is who each sector actually serves. The students in
-      government, Catholic and independent schools do not reflect a random cross-section of Australian society - the
-      differences are stark, and they start with the communities each sector is built into.
+      So far, we have looked at how the school system is structured: where schools are, what choices exist, how
+      resources vary, and how large schools can be. But structure is only the first part of the story. The next
+      question is who different schools actually serve.
     </p>
   </section>
 
   <section class="act-section">
     <h2 class="act-heading">Who do different schools serve?</h2>
     <p>
-      Knowing your school-community advantage and student background is important for understanding the school experience. This is because different schools may serve different communities and student populations, which can affect the resources, opportunities and support available to students.
-      The next question is whether different kinds of schools serve similar student communities. This section uses
-      Index of Community Socio-Educational Advantage (ICSEA), SEA quarters, Commonwealth Register of Institutions
-      and Courses for Overseas Students (CRICOS) registration, LBOTE and Indigenous enrolment to look at
-      school-community advantage and student background.
+       To understand school experience, we need to look beyond school numbers and resources. Different schools may serve different student communities, and those differences can shape the learning environment students experience.
+       Terms like ICSEA, SEA quarters, CRICOS registration, LBOTE and Indigenous enrolment are used to explore student background.
     </p>
 
     <div class="chart-card">
@@ -820,14 +979,13 @@
     </div>
 
     <p class="section-transition">
-      Community advantage is not only a sector pattern. It is also geographic. Brushing across ICSEA scores shows
+      Community advantage is not only a school sector pattern. It is also geographic. Brushing across ICSEA scores shows
       where schools serving less advantaged communities are concentrated and how the mix of sectors changes across
       Australia.
     </p>
 
     <div class="chart-card">
-      <h3>Where are schools serving different socio-educational communities?</h3>
-      <p class="chart-subtitle">Lower ICSEA = less advantaged communities</p>
+      <h3>Explore where schools sit on the community advantage scale across Australia</h3>
       <div id="icseaBrushVis" class="icsea-brush-vis"></div>
       <div class="icsea-brush-sector-legend" aria-label="Sector">
         <div class="icsea-brush-sector-legend-title">Sector</div>
@@ -847,30 +1005,38 @@
     </div>
 
     <p class="section-transition">
-      That community advantage gap has a direct consequence for overseas families. The schools available to
-      international students - those with CRICOS registration - are drawn almost entirely from the advantaged end of
+      That advantage pattern becomes important when looking at overseas student access. The schools available to
+      international students are those with CRICOS registration which are drawn almost entirely from the advantaged end of
       the scale.
     </p>
 
     <div class="chart-card">
       <h3>Schools open to overseas students are concentrated in Australia's more advantaged communities</h3>
+      <p class="chart-subtitle">
+         Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS). A school requires CRICOS
+        registration to enrol overseas students.
+      </p>
       <div id="cricosIcsea" class="vis"></div>
-      <p class="chart-note">
-       Not every Australian school is open to overseas students. To legally enrol, a school must hold CRICOS registration and the schools that have it do not reflect Australian schooling as a whole. Across all three sectors, CRICOS-registered schools sit noticeably higher on the community advantage scale than non-registered schools. The gap is largest in government schools, where the median registered school sits 28 percentile points above the median non-registered school. This shows that overseas families looking at public schooling can only choose from government schools in wealthier areas. Independent CRICOS schools sit even higher, with a median at the 92nd percentile. Whichever sector you choose, the schools available to you as an overseas family represent only the more advantaged end of Australian communities.
+      <div class="cricos-status-legend" aria-label="CRICOS registration status">
+        <div class="cricos-status-legend-title">CRICOS registration status</div>
+        <div class="cricos-status-legend-items">
+          <div class="cricos-status-legend-item"><span class="cricos-status-swatch" style="background:#9AA0A6;"></span>Not registered</div>
+          <div class="cricos-status-legend-item"><span class="cricos-status-swatch" style="background:#A66A3F;"></span>CRICOS registered</div>
+        </div>
+      </div>
+      <p class="chart-note"> 
+       Across all three sectors, CRICOS-registered schools sit noticeably higher on the community advantage scale than non-registered schools. The gap is largest in government schools, where the median registered school sits 28 percentile points above the median non-registered school.
+        This shows that overseas families looking at public schooling can only choose from government schools in wealthier areas. Independent CRICOS schools sit even higher, with a median at the 92nd percentile. Whichever sector you choose, the schools available to you as an overseas family represent only the more advantaged end of Australian communities.
       </p>
     </div>
 
     <p class="section-transition">
-      The geographic and international dimensions of advantage are clear. But when you look directly at the
-      socio-economic backgrounds of students within each sector, the divide becomes even harder to ignore.
+     Previously the charts have shown that advantage is linked to both location and school access. But to understand the difference between sectors more clearly, we need to look at the student mix inside each sector. 
     </p>
 
     <div class="chart-card">
-      <h3>Do school sectors serve different socio-educational groups?</h3>
-      <p>
-        Each bar adds up to 100%. It shows the estimated share of students from the bottom, lower-middle,
-        upper-middle and top Socio-Educational Advantage quarter (SEA) groups within each school sector.
-      </p>
+      <h3>Socio-educational groups across school sectors</h3>
+
       <div id="seaQuarter" class="vis"></div>
       <div class="sea-quarter-legend" aria-label="Socio-Educational Advantage quarter (SEA)">
         <div class="sea-quarter-legend-title">Socio-Educational Advantage quarter (SEA)</div>
@@ -882,78 +1048,68 @@
         </div>
       </div>
       <p class="chart-note">
-        Why this matters: this chart uses each school's Socio-Educational Advantage quarter (SEA) percentages and total enrolments to estimate
-        the student mix within each sector. It shows whether sectors serve different socio-educational groups.
+        This shows that socio-educational background is not evenly distributed across sectors. Government schools have the largest share of students from the bottom SEA quarter, while Independent schools have the largest share from the top SEA quarter. Catholic schools sit between the two, with a more mixed student profile.
+        Therefore, students from more disadvantaged backgrounds are more likely to attend government schools, while students from more advantaged backgrounds are more likely to attend independent schools.
       </p>
     </div>
 
     <p class="section-transition">
       Socio-economic background is one lens. Language background is another. Schools with higher proportions of
-      students from non-English speaking homes tell a different story about where disadvantage concentrates - and
+      students from non-English speaking homes tell a different story about where disadvantage concentrates and
       which sector bears the weight of it.
     </p>
 
     <div class="chart-card">
-      <h3>How does Language Background Other Than English vary with the Index of Community Socio-Educational Advantage?</h3>
+      <h3>Language background and community advantage are largely independent</h3>
       <p>
-        This scatter plot compares each school's ICSEA score with the percentage of students recorded as having
-        Language Background Other Than English. Each point represents one school.
+        Each dot is a school. The vertical spread at any point on the horizontal axis shows that schools with very
+        different proportions of students from non-English speaking homes sit at the same community advantage level.
       </p>
-      <div id="lboteScatter" class="vis"></div>
+      <div id="lboteSectorFilterSlot" class="lbote-filter-slot" aria-label="Sector filter"></div>
+      <div id="lboteScatter" class="vis vis-centered"></div>
+      <div class="resourcing-sector-legend lbote-sector-legend" aria-label="School sector">
+        <div class="resourcing-sector-legend-title">School sector</div>
+        <div class="resourcing-sector-legend-items">
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#5BC2A8;"></span>Government</div>
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#E6863E;"></span>Catholic</div>
+          <div class="resourcing-sector-legend-item"><span class="resourcing-sector-swatch" style="background:#9A9BD0;"></span>Independent</div>
+        </div>
+      </div>
       <p class="chart-note">
-        Why this matters: LBOTE is one way to view language background diversity. The trend line suggests only a
-        weak relationship, so it should not be read as a strong or causal pattern.
+        Unlike socio-economic background, language background does not neatly follow the advantage scale. Schools with high proportions of non-English speaking students exist at every ICSEA level from the most disadvantaged to the most advantaged. This means a child's language background alone does not predict which sector they'll end up in. Government schools are present across the entire range, absorbing Australia's linguistic diversity at every level of advantage. Catholic and independent schools serve a smaller group and their students are far less likely to come from non-English speaking homes.
       </p>
     </div>
 
     <p class="section-transition">
-      Language background reflects one dimension of Australia's diversity. For Indigenous students, the pattern of
-      concentration is even more pronounced - and it varies dramatically depending on which state and which sector
-      you look at.
+      Language background is one part of student diversity, but it is not the only one. In Australia, it is also important to look at Aboriginal and Torres Strait Islander student enrolments, because these patterns vary strongly by state, territory and school sector.
     </p>
 
     <div class="chart-card">
       <h3>Where are Indigenous enrolments highest?</h3>
       <p>
-        This grouped bar chart compares the share of Indigenous enrolments across states and school sectors.
-        Percentages are weighted by total enrolments.
+        Each bar shows what percentage of students in that sector and state identify as Indigenous.
       </p>
-      <div id="indigenousChart" class="vis"></div>
+      <div id="indigenousChart" class="vis vis-centered"></div>
+      <div class="indigenous-sector-legend" aria-label="School sector">
+        <div class="indigenous-sector-legend-title">School sector</div>
+        <div class="indigenous-sector-legend-items">
+          <div class="indigenous-sector-legend-item"><span class="indigenous-sector-swatch" style="background:#5BC2A8;"></span>Government</div>
+          <div class="indigenous-sector-legend-item"><span class="indigenous-sector-swatch" style="background:#E6863E;"></span>Catholic</div>
+          <div class="indigenous-sector-legend-item"><span class="indigenous-sector-swatch" style="background:#9A9BD0;"></span>Independent</div>
+        </div>
+      </div>
       <p class="chart-note">
-        Why this matters: this chart adds Australian context by showing that student background differs by both
-        state and school sector. It links place, sector and community background in one view.
+        In the Northern Territory, nearly 44% of government school students are Indigenous, the highest proportion
+        of any state-sector combination in Australia. Government schools have the largest share of Indigenous
+        students in every state and territory. This reflects both the geographic concentration of Indigenous
+        communities and the limited availability of Catholic and Independent schools in many remote areas. For
+        Indigenous families in remote Australia, government schooling is often the only nearby option.
       </p>
     </div>
 
-    <p class="section-transition">
-      Size matters too. The largest schools in Australia are not evenly distributed across sectors or communities -
-      and the gap in scale between the biggest and smallest schools reflects the same patterns of advantage this story
-      has traced throughout.
-    </p>
   </section>
 
   <section>
-    <h2>How big are the largest schools?</h2>
-    <p>
-      The final part of the dashboard adds school size. Size does not mean quality, but it can affect the school
-      experience because larger schools may have different facilities, subject choices, staffing needs and community
-      structures.
-    </p>
-
-    <div class="chart-card">
-      <h3>Which schools have the largest enrolments?</h3>
-      <p>
-        This treemap shows the largest Australian schools by total enrolments in the ACARA School Profile 2025
-        dataset, grouped by school sector.
-      </p>
-      <div id="topEnrolment" class="vis"></div>
-      <p class="chart-note">
-        Larger rectangles represent larger enrolments. Labels appear only where the full school name fits;
-        hover over each rectangle for full details. Why this matters: school size adds another way that the school
-        experience can differ, because some students attend very large schools while others do not.
-      </p>
-    </div>
-
     <p class="section-transition">
       Taken together, these patterns point to the same conclusion the opening question raised: in Australia, where you
       live and what your family earns still shapes which school you attend, what resources that school has, and who
@@ -980,16 +1136,32 @@
       range: ["#185FA5", "#378ADD", "#97C459", "#D85A30", "#A32D2D"]
     };
 
+    const sansSerifFont = "Arial, Helvetica, sans-serif";
+
     const commonConfig = {
       view: { stroke: null },
       axis: {
+        labelFont: sansSerifFont,
+        titleFont: sansSerifFont,
         labelFontSize: 12,
         titleFontSize: 13,
         gridColor: "#dddddd"
       },
       legend: {
+        labelFont: sansSerifFont,
+        titleFont: sansSerifFont,
         labelFontSize: 12,
         titleFontSize: 13
+      },
+      header: {
+        labelFont: sansSerifFont,
+        titleFont: sansSerifFont
+      },
+      title: {
+        font: sansSerifFont
+      },
+      text: {
+        font: sansSerifFont
       }
     };
 
@@ -1243,8 +1415,8 @@
       "config": {
         "view": { "stroke": null },
         "legend": {
-          "labelFont": "Arial, Helvetica, sans-serif",
-          "titleFont": "Arial, Helvetica, sans-serif",
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont,
           "labelFontSize": 14,
           "titleFontSize": 14,
           "titleFontWeight": 700,
@@ -1994,7 +2166,7 @@
           "sort": ["Government", "Catholic", "Independent"],
           "title": null,
           "header": {
-            "labelFont": "Georgia",
+            "labelFont": sansSerifFont,
             "labelFontSize": 20,
             "labelFontWeight": "normal",
             "labelColor": "#111111",
@@ -2099,7 +2271,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 10,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2146,7 +2318,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 10,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2193,7 +2365,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 10,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2244,7 +2416,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 12,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2293,7 +2465,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 11,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2356,7 +2528,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 12,
               "fontWeight": "bold",
               "color": "#8C1D40"
@@ -2402,7 +2574,7 @@
               "type": "text",
               "align": "left",
               "baseline": "middle",
-              "font": "Arial",
+              "font": sansSerifFont,
               "fontSize": 11,
               "fontWeight": "bold",
               "lineBreak": "\n",
@@ -2428,10 +2600,20 @@
         "axis": {
           "domainColor": "#999999",
           "gridColor": "#dedede",
-          "labelFont": "Arial",
-          "titleFont": "Arial",
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont,
           "labelColor": "#111111",
           "titleColor": "#111111"
+        },
+        "header": {
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont
+        },
+        "title": {
+          "font": sansSerifFont
+        },
+        "text": {
+          "font": sansSerifFont
         }
       }
     };
@@ -2458,6 +2640,7 @@
           "title": null,
           "sort": ["Government", "Catholic", "Independent"],
           "header": {
+            "labelFont": sansSerifFont,
             "labelFontSize": 14,
             "labelFontWeight": "bold",
             "labelPadding": 12
@@ -2472,8 +2655,8 @@
             "mark": {
               "type": "circle",
               "filled": true,
-              "size": 12,
-              "opacity": 0.26
+              "size": 10,
+              "opacity": 0.18
             },
             "encoding": {
               "x": {
@@ -2496,12 +2679,9 @@
                 "title": "CRICOS registration status",
                 "scale": {
                   "domain": ["Not registered", "CRICOS registered"],
-                  "range": ["#9AA0A6", "#1B9E77"]
+                  "range": ["#9AA0A6", "#A66A3F"]
                 },
-                "legend": {
-                  "orient": "bottom",
-                  "direction": "horizontal"
-                }
+                "legend": null
               },
               "tooltip": [
                 { "field": "School Name", "type": "nominal", "title": "School" },
@@ -3008,15 +3188,68 @@
       "config": commonConfig
     };
 
+    const lbotePointMark = {
+      "type": "point",
+      "filled": true,
+      "size": 10,
+      "opacity": 0.18,
+      "stroke": "white",
+      "strokeWidth": 0.25
+    };
+
+    const lbotePointEncoding = {
+      "x": {
+        "field": "icsea_value",
+        "type": "quantitative",
+        "title": "Index of Community Socio-Educational Advantage score",
+        "scale": { "zero": false }
+      },
+      "y": {
+        "field": "lbote_pct",
+        "type": "quantitative",
+        "title": "Language Background Other Than English (%)",
+        "scale": { "domain": [0, 100] }
+      },
+      "color": {
+        "field": "School Sector",
+        "type": "nominal",
+        "title": "School sector",
+        "scale": sectorColours,
+        "legend": null
+      },
+      "tooltip": [
+        { "field": "School Name", "type": "nominal", "title": "School" },
+        { "field": "State", "type": "nominal", "title": "State" },
+        { "field": "School Sector", "type": "nominal", "title": "Sector" },
+        { "field": "icsea_value", "type": "quantitative", "title": "Index of Community Socio-Educational Advantage", "format": ".0f" },
+        { "field": "lbote_pct", "type": "quantitative", "title": "Language Background Other Than English (%)", "format": ".1f" },
+        { "field": "enrolments_value", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" }
+      ]
+    };
+
     const lboteScatterSpec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": 760,
       "height": 460,
       "background": "white",
       "data": { "url": "data/School_Profile_2025.csv" },
+      "params": [
+        {
+          "name": "lboteSectorFilter",
+          "value": "All",
+          "bind": {
+            "input": "select",
+            "options": ["All", "Government", "Catholic", "Independent"],
+            "name": "Sector: "
+          }
+        }
+      ],
       "transform": [
         {
           "filter": "datum['School Sector'] == 'Government' || datum['School Sector'] == 'Catholic' || datum['School Sector'] == 'Independent'"
+        },
+        {
+          "filter": "lboteSectorFilter == 'All' || datum['School Sector'] == lboteSectorFilter"
         },
         {
           "calculate": "datum['ICSEA'] != null && datum['ICSEA'] != '' ? parseFloat(datum['ICSEA']) : null",
@@ -3036,66 +3269,49 @@
       ],
       "layer": [
         {
-          "mark": {
-            "type": "point",
-            "filled": true,
-            "size": 16,
-            "opacity": 0.22,
-            "stroke": "white",
-            "strokeWidth": 0.25
-          },
-          "encoding": {
-            "x": {
-              "field": "icsea_value",
-              "type": "quantitative",
-              "title": "Index of Community Socio-Educational Advantage score",
-              "scale": { "zero": false }
-            },
-            "y": {
-              "field": "lbote_pct",
-              "type": "quantitative",
-              "title": "Language Background Other Than English (%)",
-              "scale": { "domain": [0, 100] }
-            },
-            "color": {
-              "field": "School Sector",
-              "type": "nominal",
-              "title": "School sector",
-              "scale": sectorColours,
-              "legend": {
-                "orient": "right",
-                "symbolOpacity": 1
-              }
-            },
-            "tooltip": [
-              { "field": "School Name", "type": "nominal", "title": "School" },
-              { "field": "State", "type": "nominal", "title": "State" },
-              { "field": "School Sector", "type": "nominal", "title": "Sector" },
-              { "field": "icsea_value", "type": "quantitative", "title": "Index of Community Socio-Educational Advantage", "format": ".0f" },
-              { "field": "lbote_pct", "type": "quantitative", "title": "Language Background Other Than English (%)", "format": ".1f" },
-              { "field": "enrolments_value", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" }
-            ]
-          }
+          "transform": [{ "filter": "datum['School Sector'] == 'Government'" }],
+          "mark": lbotePointMark,
+          "encoding": lbotePointEncoding
         },
         {
-          "transform": [{ "regression": "lbote_pct", "on": "icsea_value" }],
+          "transform": [{ "filter": "datum['School Sector'] == 'Catholic'" }],
+          "mark": lbotePointMark,
+          "encoding": lbotePointEncoding
+        },
+        {
+          "transform": [{ "filter": "datum['School Sector'] == 'Independent'" }],
+          "mark": lbotePointMark,
+          "encoding": lbotePointEncoding
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "icsea_value": 1000,
+                "lbote_low": 12,
+                "lbote_high": 86
+              }
+            ]
+          },
           "mark": {
-            "type": "line",
+            "type": "rule",
             "color": "#333333",
-            "strokeWidth": 2
+            "strokeDash": [4, 4],
+            "strokeWidth": 1.5
           },
           "encoding": {
             "x": { "field": "icsea_value", "type": "quantitative" },
-            "y": { "field": "lbote_pct", "type": "quantitative" }
+            "y": { "field": "lbote_low", "type": "quantitative" },
+            "y2": { "field": "lbote_high" }
           }
         },
         {
           "data": {
             "values": [
               {
-                "icsea_value": 1130,
-                "lbote_pct": 29,
-                "label": "Weak positive correlation"
+                "icsea_value": 1000,
+                "lbote_pct": 86,
+                "label": "Every ICSEA level contains schools\nwith very different LBOTE proportions"
               }
             ]
           },
@@ -3103,10 +3319,11 @@
             "type": "text",
             "align": "left",
             "baseline": "middle",
-            "dx": 8,
-            "dy": -8,
+            "dx": 10,
+            "dy": -10,
             "fontSize": 12,
             "fontWeight": "bold",
+            "lineBreak": "\n",
             "color": "#333333"
           },
           "encoding": {
@@ -3167,44 +3384,110 @@
           "as": "indigenous_share"
         }
       ],
-      "mark": {
-        "type": "bar",
-        "cornerRadiusTopLeft": 2,
-        "cornerRadiusTopRight": 2
-      },
-      "encoding": {
-        "x": {
-          "field": "state_name",
-          "type": "nominal",
-          "title": "State/Territory",
-          "sort": ["New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
-          "axis": { "labelAngle": -35, "labelAlign": "right" }
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "cornerRadiusTopLeft": 2,
+            "cornerRadiusTopRight": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "state_name",
+              "type": "nominal",
+              "title": "State/Territory",
+              "sort": ["New South Wales", "Victoria", "Queensland", "Western Australia", "South Australia", "Tasmania", "Northern Territory", "Australian Capital Territory"],
+              "axis": { "labelAngle": -35, "labelAlign": "right" }
+            },
+            "xOffset": {
+              "field": "School Sector",
+              "sort": ["Government", "Catholic", "Independent"]
+            },
+            "y": {
+              "field": "indigenous_share",
+              "type": "quantitative",
+              "title": "Indigenous enrolments (%)",
+              "axis": { "format": ".0%" }
+            },
+            "color": {
+              "field": "School Sector",
+              "type": "nominal",
+              "title": "School sector",
+              "scale": sectorColours,
+              "legend": null
+            },
+            "tooltip": [
+              { "field": "state_name", "type": "nominal", "title": "State/Territory" },
+              { "field": "School Sector", "type": "nominal", "title": "School sector" },
+              { "field": "total_students", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" },
+              { "field": "total_indigenous_students", "type": "quantitative", "title": "Estimated Indigenous enrolments", "format": ",.0f" },
+              { "field": "indigenous_share", "type": "quantitative", "title": "Indigenous enrolment share", "format": ".1%" }
+            ]
+          }
         },
-        "xOffset": {
-          "field": "School Sector",
-          "sort": ["Government", "Catholic", "Independent"]
+        {
+          "data": {
+            "values": [
+              { "annotation_y": 0.34, "target_y": 0.438 }
+            ]
+          },
+          "mark": {
+            "type": "rule",
+            "color": "#111111",
+            "strokeDash": [4, 4],
+            "strokeWidth": 1.4
+          },
+          "encoding": {
+            "x": { "value": 390 },
+            "x2": { "value": 618 },
+            "y": { "field": "annotation_y", "type": "quantitative" },
+            "y2": { "field": "target_y" }
+          }
         },
-        "y": {
-          "field": "indigenous_share",
-          "type": "quantitative",
-          "title": "Indigenous enrolments (%)",
-          "axis": { "format": ".0%" }
+        {
+          "data": {
+            "values": [
+              { "target_y": 0.438 }
+            ]
+          },
+          "mark": {
+            "type": "point",
+            "filled": true,
+            "color": "#111111",
+            "size": 42
+          },
+          "encoding": {
+            "x": { "value": 618 },
+            "y": { "field": "target_y", "type": "quantitative" }
+          }
         },
-        "color": {
-          "field": "School Sector",
-          "type": "nominal",
-          "title": "School sector",
-          "scale": sectorColours,
-          "legend": { "orient": "right" }
-        },
-        "tooltip": [
-          { "field": "state_name", "type": "nominal", "title": "State/Territory" },
-          { "field": "School Sector", "type": "nominal", "title": "School sector" },
-          { "field": "total_students", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" },
-          { "field": "total_indigenous_students", "type": "quantitative", "title": "Estimated Indigenous enrolments", "format": ",.0f" },
-          { "field": "indigenous_share", "type": "quantitative", "title": "Indigenous enrolment share", "format": ".1%" }
-        ]
-      },
+        {
+          "data": {
+            "values": [
+              {
+                "annotation_y": 0.41,
+                "annotation_text": "NT government schools: nearly 44%\nIndigenous enrolments - highest nationally."
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "font": sansSerifFont,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "lineBreak": "\n",
+            "lineHeight": 15,
+            "color": "#111111"
+          },
+          "encoding": {
+            "x": { "value": 40 },
+            "y": { "field": "annotation_y", "type": "quantitative" },
+            "text": { "field": "annotation_text", "type": "nominal" }
+          }
+        }
+      ],
       "config": commonConfig
     };
 
@@ -3334,16 +3617,6 @@
         }
       ],
 
-      "legends": [
-        {
-          "fill": "sectorColor",
-          "title": "School sector",
-          "orient": "right",
-          "labelFontSize": 12,
-          "titleFontSize": 13
-        }
-      ],
-
       "marks": [
         {
           "type": "rect",
@@ -3411,11 +3684,14 @@
               "fontSize": {
                 "value": 10
               },
+              "font": {
+                "value": sansSerifFont
+              },
               "fontWeight": {
                 "value": "bold"
               },
               "fill": {
-                "signal": "datum['School Sector'] == 'Independent' ? '#222222' : 'white'"
+                "value": "#111111"
               },
               "pointerEvents": {
                 "value": "none"
@@ -3452,11 +3728,14 @@
               "fontSize": {
                 "value": 10
               },
+              "font": {
+                "value": sansSerifFont
+              },
               "fontWeight": {
                 "value": "normal"
               },
               "fill": {
-                "signal": "datum['School Sector'] == 'Independent' ? '#222222' : 'white'"
+                "value": "#111111"
               },
               "pointerEvents": {
                 "value": "none"
@@ -3759,16 +4038,27 @@
         "scale": { "color": "shared" }
       },
       "config": {
-        "title": { "font": "sans-serif", "fontSize": 13 },
+        "title": { "font": sansSerifFont, "fontSize": 13 },
         "view": { "stroke": null },
         "legend": {
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont,
           "labelFontSize": 11,
           "titleFontSize": 11,
           "symbolSize": 80
         },
         "axis": {
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont,
           "labelFontSize": 10,
           "titleFontSize": 11
+        },
+        "header": {
+          "labelFont": sansSerifFont,
+          "titleFont": sansSerifFont
+        },
+        "text": {
+          "font": sansSerifFont
         }
       }
     };
@@ -3788,7 +4078,14 @@
     vegaEmbed("#icseaBrushVis", icseaBrushSpec, embedOptions);
     vegaEmbed("#cricosIcsea", cricosIcseaSpec, embedOptions);
     vegaEmbed("#seaQuarter", seaQuarterSpec, embedOptions);
-    vegaEmbed("#lboteScatter", lboteScatterSpec, embedOptions);
+    vegaEmbed("#lboteScatter", lboteScatterSpec, embedOptions).then(() => {
+      const bindings = document.querySelector("#lboteScatter .vega-bindings");
+      const filterSlot = document.querySelector("#lboteSectorFilterSlot");
+
+      if (bindings && filterSlot) {
+        filterSlot.appendChild(bindings);
+      }
+    });
     vegaEmbed("#indigenousChart", indigenousSpec, embedOptions);
     vegaEmbed("#topEnrolment", topEnrolmentSpec, embedOptions);
   </script>
