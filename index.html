@@ -193,12 +193,19 @@
       font-weight: 700;
     }
 
-    .source-note {
-      font-size: 13px;
-      color: #666;
-      border-top: 1px solid #ddd;
-      padding-top: 18px;
-      margin-top: 24px;
+    .page-footer {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 28px 32px 28px;
+    }
+
+    .page-footer p {
+      max-width: none;
+      margin: 0;
+      color: #a6a6a6;
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: left;
     }
 
     .two-col {
@@ -737,9 +744,10 @@
   <header>
     <h1>Does where you live shape the schools and student communities around you?</h1>
     <p class="intro">
-      Australian schools are not evenly spread across the country. Some students live in places with many nearby
-      schools and several sectors to choose from such as Government, Catholic or Independent, while others live in areas where options are more limited.
-       Students socio-educational advantage and student background also plays a part in which school sector they can choose from and how this may impact their schooling expereience.
+      Australian schools are not evenly distributed across the country. Some students live in places with many
+      nearby schools and several sectors to choose from, including government, Catholic and independent schools.
+      Other students live in areas where options are more limited. A student's socioeconomic background can also
+      affect the school sectors available to them and shape their school experience.
     </p>
 
   </header>
@@ -747,15 +755,16 @@
   <section class="act-section">
     <h2 class="act-heading">Where are schools available?</h2>
     <p>
-      Knowing where schools are located and how many schools are nearby is an important part of understanding school access. This is important because 
-      not all states and regions have the same number of schools and spread distribution. Even more so with the school sectors, impacting their school choice.
+      Knowing where schools are located and how many schools are nearby is an important part of understanding school
+      access. States and regions do not have the same number or distribution of schools. The availability of different
+      school sectors also affects the choices families can make.
     </p>
 
     <div class="chart-card">
-      <h3>Schools availability across Australia</h3>
+      <h3>School availability across Australia</h3>
 
       <div class="two-map-controls">
-        <label>State:
+        <label>State
           <select id="twoMapStateSelect">
             <option>All</option>
             <option>NSW</option>
@@ -769,7 +778,7 @@
           </select>
         </label>
 
-        <label>Sector:
+        <label>Sector
           <select id="twoMapSectorSelect">
             <option>All</option>
             <option>Government</option>
@@ -778,7 +787,7 @@
           </select>
         </label>
 
-        <label class="two-map-zoom-control">Zoom:
+        <label class="two-map-zoom-control">Zoom
           <input id="twoMapZoomSlider" type="range" min="1" max="4" step="0.25" value="1">
           <span id="twoMapZoomValue" class="two-map-zoom-value">1.00x</span>
         </label>
@@ -826,19 +835,25 @@
       </div>
 
       <p class="chart-note">
-        This shows that schools clustered around major cities and the east coast, with more students attending schools in those areas compared to regional and remote areas. And that schools are more concentrated in major cities, while regional and remote areas have fewer schools spread across larger areas. This means students in dense urban areas are likely to have more nearby school options than students in less populated regional and remote areas, which can affect school access and choice for students based on where they live.
+        Schools cluster around major cities and along the east coast. More students attend schools in these areas than
+        in regional and remote areas. Schools in regional and remote areas are fewer and spread across larger
+        distances. Students in dense urban areas are therefore more likely to have several nearby school options,
+        while students in less populated areas may have more limited access and choice.
       </p>
     </div>
     <p class="section-transition">
-      These maps show where schools exist but not all schools are the same. Australia runs three distinct school sectors: government, Catholic and independent. Which sector a child ends up in shapes almost everything that follows
+      These maps show where schools exist, but not all schools are the same. Australia has three distinct school
+      sectors. They are government, Catholic and independent schools. The school sector a child attends shapes much
+      of what follows.
     </p>
   </section>
 
   <section class="act-section">
     <h2 class="act-heading">What school choices are available?</h2>
     <p>
-      Knowing the breakdown of school sectors nationally, school sectors spread across remoteness areas, school types distribution across states and how students per teacher ratios differ across sectors and remoteness areas
-      is important for families when making school choice decisions. 
+      Understanding the national sector breakdown, the distribution of sectors across remoteness areas, the types of
+      schools in each state and the variation in students per teacher is important for families making school choice
+      decisions.
     </p>
 
     <div class="chart-card">
@@ -854,8 +869,9 @@
         </div>
       </div>
       <p class="chart-note">
-        Government schools make up the largest share of Australian schools, while Catholic and Independent schools form smaller but still important
-        parts of the system. This means that most students attend government schools, but a significant number of students also attend Catholic and Independent schools, which can offer different educational approaches, resources and communities compared to government schools.
+        Government schools make up the largest share of Australian schools. Catholic and independent schools form
+        smaller but still important parts of the system. The sectors are not equally represented nationally, which
+        affects the range of options available to families.
       </p>
     </div>
 
@@ -863,15 +879,17 @@
       <h3>School sector choice by remoteness</h3>
       <div id="remotenessHeatmap" class="vis vis-centered"></div>
       <p class="chart-note">
-        This shows that most share of schools of each sector are located in major cities, while the share of schools in regional and remote areas is smaller. And that Government schools have a larger share of schools in regional and remote areas compared to Catholic and Independent schools, which are more concentrated in major cities.
-        So those that wants to go to catholic or independent schools may have more limited options if they live in regional or remote areas, while those that want to go to government schools may have more options across different remoteness areas.
+        Most schools in each sector are located in major cities. Regional and remote areas contain smaller shares of
+        schools. Government schools are more widely represented outside major cities than Catholic and independent
+        schools. Families seeking Catholic or independent schools may therefore have fewer options in regional and
+        remote areas, while government schools are available across a broader range of locations.
       </p>
     </div>
 
     <p class="section-transition">
-      The national picture masks significant variation between states. NSW and Victoria have the highest concentration
-      of independent schools; the Northern Territory is almost entirely government. Where you grow up in Australia
-      shapes which sector is even available to you.
+      The national picture masks significant variation between states. New South Wales and Victoria have the largest
+      numbers of independent schools, while the Northern Territory is almost entirely served by government schools.
+      Where a family lives shapes which sectors are available.
     </p>
 
     <div class="chart-card">
@@ -886,8 +904,11 @@
           <div class="school-type-legend-item"><span class="school-type-swatch" style="background:#B279A2;"></span>Special</div>
         </div>
       </div>
-      <p class="chart-note">     
-        Families do not always have the same school choices. The type of school they choose depends on their child’s age, needs and what is available nearby. Larger states have more schools overall, but each state has a different mix of primary, secondary, combined and special schools. This means some families may find it harder than others to access the type of school that best suits their child depending on where they live.
+      <p class="chart-note">
+        Families do not always have the same school choices. The type of school they choose depends on their child's
+        age, needs and nearby options. Larger states have more schools overall, but each state has a different mix of
+        primary, secondary, combined and special schools. Some families may find it harder to access the type of
+        school that best suits their child because of where they live.
       </p>
     </div>
 
@@ -896,6 +917,8 @@
       most direct measures is how many students share each teacher. This varies significantly across sectors
       and locations.
     </p>
+
+    <h2 class="act-heading">Resources and school scale also shape experience</h2>
 
     <div class="chart-card">
       <h3>Teaching resources vary by sector and remoteness</h3>
@@ -920,20 +943,21 @@
         </div>
       </div>
       <p class="chart-note">
-          At first, very remote areas appear to have fewer students per teacher. However, this does not automatically mean that very 
-  remote schools are better resourced. Many remote schools are small, so the student-teacher ratio can look low even when the 
-  total number of teachers is much smaller. The bar chart on the right helps show this context in which most teaching staff are still 
-  concentrated in major cities, where most schools and students are located. Student-teacher ratios add another layer to school access. Remote schools may have fewer students 
-  per teacher, but they also operate with a much smaller total teaching workforce.
+        At first, very remote areas appear to have fewer students per teacher. However, this does not automatically
+        mean that very remote schools are better resourced. Many remote schools are small, so the ratio of students to
+        teachers can look low even when the total number of teachers is much smaller. The bar chart on the right
+        provides important context. Most teaching staff are concentrated in major cities, where most schools and
+        students are located. Remote schools may have fewer students per teacher, but they also operate with a much
+        smaller teaching workforce.
       </p>
     </div>
 
   </section>
 
   <section>
-    <h2 class="act-heading">School size adds another layer to the school experience</h2>
-    <p>
-      School systems also differ by scale. A school of 6000 students offers a very different experience from one of 300 in facilities, subject choices, and community feel.
+    <p class="section-transition">
+      School systems also differ by scale. A school with 6,000 students offers a very different experience from a
+      school with 300 students through its facilities, subject choices and sense of community.
     </p>
 
     <div class="chart-card">
@@ -947,34 +971,40 @@
         </div>
       </div>
       <p class="chart-note">
-        Each rectangle represents one large school, with size showing total enrolments and colour showing school sector. The largest schools are mostly split between Government and Independent schools. Several large Government schools are distance education or large state colleges, while many large Independent schools are high-enrolment private schools. No Catholic schools appear in the top 20. This shows that the largest school campuses are not evenly spread across sectors.
+        Each rectangle represents one large school, with size showing total enrolments and colour showing school
+        sector. The largest schools are mostly split between government and independent schools. Several large
+        government schools provide distance education or operate as large state colleges, while many large independent
+        schools are private schools with high enrolments. No Catholic schools appear in the top 20. This shows that the
+        largest schools are not evenly distributed across sectors.
       </p>
     </div>
 
     <p class="section-transition">
-      So far, we have looked at how the school system is structured: where schools are, what choices exist, how
-      resources vary, and how large schools can be. But structure is only the first part of the story. The next
-      question is who different schools actually serve.
+      So far, we have looked at the structure of the school system. This includes where schools are located, what
+      choices exist, how resources vary and how large schools can be. But structure is only the first part of the
+      story. The next question is who different schools actually serve.
     </p>
   </section>
 
   <section class="act-section">
     <h2 class="act-heading">Who do different schools serve?</h2>
     <p>
-       To understand school experience, we need to look beyond school numbers and resources. Different schools may serve different student communities, and those differences can shape the learning environment students experience.
-       Terms like ICSEA, SEA quarters, CRICOS registration, LBOTE and Indigenous enrolment are used to explore student background.
+      To understand school experiences, we need to look beyond school numbers and resources. Different schools serve
+      different student communities, and these differences can shape their learning environments. Terms such as
+      ICSEA, SEA quarters, CRICOS registration, LBOTE and Indigenous enrolments help us explore student backgrounds.
     </p>
 
     <div class="chart-card">
-      <h3>Socio-educational advantage (ICSEA) distribution across school sectors</h3>
+      <h3>Socio educational advantage (ICSEA) distribution across school sectors</h3>
       <p class="chart-subtitle">Higher ICSEA = more advantaged community</p>
       <div id="icseaViolin" class="vis"></div>
       <p class="chart-subtitle">Lower ICSEA = more disadvantaged community</p>
       <p class="chart-note">
-        This shows that wider parts of each violin are where more schools are clustered and
-        higher ICSEA means students at that school generally come from more advantaged backgrounds. 
-        While Catholic and Independent schools cluster tightly above 1,000, with almost no presence below 800.
-        Government schools have a wider spread, with many schools below 1,000 and some above 1,000. This means that Catholic and Independent schools tend to serve more advantaged communities, while Government schools serve a wider range of communities including more disadvantaged ones.
+        The width of each violin shows where schools are concentrated. Higher ICSEA scores indicate that students
+        generally come from more advantaged backgrounds. Catholic and independent schools cluster above 1,000, with
+        almost no schools below 800. Government schools have a wider spread, with many schools below 1,000 and some
+        above 1,000. This means Catholic and independent schools tend to serve more advantaged communities, while
+        government schools serve a broader range of communities, including more disadvantaged ones.
       </p>
     </div>
 
@@ -996,24 +1026,23 @@
         </div>
       </div>
       <p class="chart-note">
-        This shows where schools serving communities with different levels of socio-educational advantage are located.
+        This shows where schools serving communities with different levels of socioeconomic advantage are located.
         Dragging across the ICSEA score range highlights how schools with lower or higher ICSEA scores are distributed
-        across metropolitan, regional and remote areas. The sector colours also show how Government, Catholic and
-        Independent schools contribute to each selected range. This means a student's nearby school options can differ
-        depending on where they live and the socio-educational profile of their local community.
+        across metropolitan, regional and remote areas. The sector colours also show how government, Catholic and
+        independent schools contribute to each selected range. This means a student's nearby school options can differ
+        depending on where they live and the socioeconomic profile of their local community.
       </p>
     </div>
 
     <p class="section-transition">
       That advantage pattern becomes important when looking at overseas student access. The schools available to
-      international students are those with CRICOS registration which are drawn almost entirely from the advantaged end of
-      the scale.
+      international students require CRICOS registration.
     </p>
 
     <div class="chart-card">
       <h3>Schools open to overseas students are concentrated in Australia's more advantaged communities</h3>
       <p class="chart-subtitle">
-         Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS). A school requires CRICOS
+        CRICOS stands for the Commonwealth Register of Institutions and Courses for Overseas Students. A school requires CRICOS
         registration to enrol overseas students.
       </p>
       <div id="cricosIcsea" class="vis"></div>
@@ -1024,22 +1053,27 @@
           <div class="cricos-status-legend-item"><span class="cricos-status-swatch" style="background:#A66A3F;"></span>CRICOS registered</div>
         </div>
       </div>
-      <p class="chart-note"> 
-       Across all three sectors, CRICOS-registered schools sit noticeably higher on the community advantage scale than non-registered schools. The gap is largest in government schools, where the median registered school sits 28 percentile points above the median non-registered school.
-        This shows that overseas families looking at public schooling can only choose from government schools in wealthier areas. Independent CRICOS schools sit even higher, with a median at the 92nd percentile. Whichever sector you choose, the schools available to you as an overseas family represent only the more advantaged end of Australian communities.
+      <p class="chart-note">
+        Across all three sectors, schools with CRICOS registration sit noticeably higher on the community advantage
+        scale than schools without registration. The gap is largest among government schools, where the median
+        registered school sits 28 percentile points above the median school without registration. This means overseas
+        families considering public schooling can only choose from government schools in wealthier areas. Independent
+        schools with CRICOS registration sit even higher, with a median at the 92nd percentile. Across every sector,
+        the schools available to overseas families represent the more advantaged end of Australian communities.
       </p>
     </div>
 
     <p class="section-transition">
-     Previously the charts have shown that advantage is linked to both location and school access. But to understand the difference between sectors more clearly, we need to look at the student mix inside each sector. 
+      The previous charts show that advantage is linked to both location and school access. To understand the
+      differences between sectors more clearly, we now need to look at the student mix within each sector.
     </p>
 
     <div class="chart-card">
-      <h3>Socio-educational groups across school sectors</h3>
+      <h3>Socio educational groups across school sectors</h3>
 
       <div id="seaQuarter" class="vis"></div>
-      <div class="sea-quarter-legend" aria-label="Socio-Educational Advantage quarter (SEA)">
-        <div class="sea-quarter-legend-title">Socio-Educational Advantage quarter (SEA)</div>
+      <div class="sea-quarter-legend" aria-label="Socioeducational Advantage quarter (SEA)">
+        <div class="sea-quarter-legend-title">Socio educational Advantage quarter (SEA)</div>
         <div class="sea-quarter-legend-items">
           <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#D95F02;"></span>Bottom SEA quarter</div>
           <div class="sea-quarter-legend-item"><span class="sea-quarter-swatch" style="background:#FDB863;"></span>Lower middle SEA quarter</div>
@@ -1048,22 +1082,26 @@
         </div>
       </div>
       <p class="chart-note">
-        This shows that socio-educational background is not evenly distributed across sectors. Government schools have the largest share of students from the bottom SEA quarter, while Independent schools have the largest share from the top SEA quarter. Catholic schools sit between the two, with a more mixed student profile.
-        Therefore, students from more disadvantaged backgrounds are more likely to attend government schools, while students from more advantaged backgrounds are more likely to attend independent schools.
+        Student backgrounds are not evenly distributed across sectors. Government schools have the largest share of
+        students from the bottom SEA quarter, while independent schools have the largest share from the top SEA
+        quarter. Catholic schools sit between the two, with a more mixed student profile. Students from more
+        disadvantaged backgrounds are therefore more likely to attend government schools, while students from more
+        advantaged backgrounds are more likely to attend independent schools.
       </p>
     </div>
 
     <p class="section-transition">
-      Socio-economic background is one lens. Language background is another. Schools with higher proportions of
-      students from non-English speaking homes tell a different story about where disadvantage concentrates and
-      which sector bears the weight of it.
+      Socio educational background is one lens. Language background is another. Schools with higher proportions of
+      students from homes where English is not the main language tell a different story about where disadvantage is
+      concentrated and which sector serves these students.
     </p>
 
     <div class="chart-card">
       <h3>Language background and community advantage are largely independent</h3>
       <p>
         Each dot is a school. The vertical spread at any point on the horizontal axis shows that schools with very
-        different proportions of students from non-English speaking homes sit at the same community advantage level.
+        different proportions of students from homes where English is not the main language sit at the same community
+        advantage level.
       </p>
       <div id="lboteSectorFilterSlot" class="lbote-filter-slot" aria-label="Sector filter"></div>
       <div id="lboteScatter" class="vis vis-centered"></div>
@@ -1076,7 +1114,11 @@
         </div>
       </div>
       <p class="chart-note">
-        Unlike socio-economic background, language background does not neatly follow the advantage scale. Schools with high proportions of non-English speaking students exist at every ICSEA level from the most disadvantaged to the most advantaged. This means a child's language background alone does not predict which sector they'll end up in. Government schools are present across the entire range, absorbing Australia's linguistic diversity at every level of advantage. Catholic and independent schools serve a smaller group and their students are far less likely to come from non-English speaking homes.
+        Unlike socioeconomic background, language background does not neatly follow the advantage scale. Schools with
+        high proportions of students from homes where English is not the main language exist at every ICSEA level. A
+        child's language background alone does not predict which sector they will attend. Government schools are
+        present across the entire range and serve Australia's linguistic diversity at every level of advantage.
+        Catholic and independent schools serve a narrower and more advantaged group.
       </p>
     </div>
 
@@ -1100,9 +1142,9 @@
       </div>
       <p class="chart-note">
         In the Northern Territory, nearly 44% of government school students are Indigenous, the highest proportion
-        of any state-sector combination in Australia. Government schools have the largest share of Indigenous
+        of any state and sector combination in Australia. Government schools have the largest share of Indigenous
         students in every state and territory. This reflects both the geographic concentration of Indigenous
-        communities and the limited availability of Catholic and Independent schools in many remote areas. For
+        communities and the limited availability of Catholic and independent schools in many remote areas. For
         Indigenous families in remote Australia, government schooling is often the only nearby option.
       </p>
     </div>
@@ -1111,19 +1153,19 @@
 
   <section>
     <p class="section-transition">
-      Taken together, these patterns point to the same conclusion the opening question raised: in Australia, where you
-      live and what your family earns still shapes which school you attend, what resources that school has, and who
-      sits beside you in the classroom. The three sectors do not serve three equal slices of Australian society - they
-      serve three different Australias. Understanding that gap is the first step toward addressing it.
+      Taken together, these patterns return to the question raised at the start. In Australia, where students live and the socio-educational background of their community are strongly connected to the schools available around them, the resources those schools have, and the students they learn alongside.
+
+The three school sectors do not serve identical groups of students. Government schools cover the widest range of communities, including many regional, remote and lower-ICSEA areas, while Catholic and Independent schools are more concentrated in higher-advantage communities.
+
+
     </p>
 
-    <p class="source-note">
-      Data sources: ACARA School Location 2025; ACARA School Profile 2025; Commonwealth Register of Institutions
-      and Courses for Overseas Students (CRICOS) locations data; ABS remoteness categories included in the ACARA
-      location data; and ABS ASGS Edition 3 SA3 2021 digital boundary files. Visualisations created using
-      Vega-Lite and Vega.
-    </p>
   </section>
+
+  <footer class="page-footer">
+    <p>Visualisation by Darrius Tan Yi Xun FIT2179 2026</p>
+    <p>Sources  ACARA, ABS and data.gov.au</p>
+  </footer>
 
   <script>
     const sectorColours = {
@@ -1748,7 +1790,7 @@
           "as": "sector_share"
         },
         {
-          "calculate": "datum['School Sector'] + ' — ' + format(datum.sector_share, '.1%')",
+          "calculate": "datum['School Sector'] + ' ' + format(datum.sector_share, '.1%')",
           "as": "sector_label"
         }
       ],
@@ -2005,7 +2047,7 @@
             "y": {
               "field": "students_per_fte_teacher",
               "type": "quantitative",
-              "title": "Students per full-time-equivalent (FTE) teacher",
+              "title": "Students per full time equivalent (FTE) teacher",
               "scale": { "zero": false },
               "axis": { "format": ".1f" }
             },
@@ -2024,7 +2066,7 @@
             "tooltip": [
               { "field": "School Sector", "type": "nominal", "title": "School sector" },
               { "field": "ABS Remoteness Area Name", "type": "nominal", "title": "Remoteness" },
-              { "field": "students_per_fte_teacher", "type": "quantitative", "title": "Students per full-time-equivalent (FTE) teacher", "format": ".1f" },
+              { "field": "students_per_fte_teacher", "type": "quantitative", "title": "Students per full time equivalent (FTE) teacher", "format": ".1f" },
               { "field": "total_students", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" },
               { "field": "total_fte_teachers", "type": "quantitative", "title": "Full-time-equivalent (FTE) teaching staff", "format": ",.1f" },
               { "field": "school_count", "type": "quantitative", "title": "Schools", "format": "," }
@@ -2052,7 +2094,7 @@
             "tooltip": [
               { "field": "School Sector", "type": "nominal", "title": "School sector" },
               { "field": "ABS Remoteness Area Name", "type": "nominal", "title": "Remoteness" },
-              { "field": "students_per_fte_teacher", "type": "quantitative", "title": "Students per full-time-equivalent (FTE) teacher", "format": ".1f" },
+              { "field": "students_per_fte_teacher", "type": "quantitative", "title": "Students per full time equivalent (FTE) teacher", "format": ".1f" },
               { "field": "total_students", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" },
               { "field": "total_fte_teachers", "type": "quantitative", "title": "Full-time-equivalent (FTE) teaching staff", "format": ",.1f" },
               { "field": "school_count", "type": "quantitative", "title": "Schools", "format": "," }
@@ -2200,7 +2242,7 @@
               "y": {
                 "field": "icsea_score",
                 "type": "quantitative",
-                "title": "Index of Community Socio-Educational Advantage score",
+                "title": "Index of Community Socioeducational Advantage score",
                 "scale": {
                   "domain": [400, 1300],
                   "zero": false
@@ -2520,7 +2562,7 @@
                 "groupby": ["School Sector"]
               },
               {
-                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "calculate": "'Median ' + format(datum.median_icsea, '.0f')",
                 "as": "median_label"
               }
             ],
@@ -2669,7 +2711,7 @@
               "y": {
                 "field": "ICSEA Percentile",
                 "type": "quantitative",
-                "title": "Index of Community Socio-Educational Advantage (ICSEA) percentile",
+                "title": "Index of Community Socioeducational Advantage (ICSEA) percentile",
                 "scale": { "domain": [0, 100] },
                 "axis": { "tickCount": 6 }
               },
@@ -2689,7 +2731,7 @@
                 { "field": "School Type", "type": "nominal", "title": "School type" },
                 { "field": "Suburb", "type": "nominal", "title": "Suburb" },
                 { "field": "State", "type": "nominal", "title": "State" },
-                { "field": "ICSEA Percentile", "type": "quantitative", "title": "Index of Community Socio-Educational Advantage (ICSEA) percentile", "format": ".0f" },
+                { "field": "ICSEA Percentile", "type": "quantitative", "title": "Index of Community Socioeducational Advantage (ICSEA) percentile", "format": ".0f" },
                 { "field": "CRICOS Status", "type": "nominal", "title": "Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) status" },
                 { "field": "CRICOS Institution", "type": "nominal", "title": "Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) institution" },
                 { "field": "CRICOS Location", "type": "nominal", "title": "Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) location" }
@@ -2734,7 +2776,7 @@
               },
               "tooltip": [
                 { "field": "CRICOS Status", "type": "nominal", "title": "Commonwealth Register of Institutions and Courses for Overseas Students (CRICOS) status" },
-                { "field": "median_icsea", "type": "quantitative", "title": "Median Index of Community Socio-Educational Advantage (ICSEA) percentile", "format": ".1f" }
+                { "field": "median_icsea", "type": "quantitative", "title": "Median Index of Community Socioeducational Advantage (ICSEA) percentile", "format": ".1f" }
               ]
             }
           },
@@ -2747,7 +2789,7 @@
                 "groupby": ["CRICOS Status", "cricos_x"]
               },
               {
-                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "calculate": "'Median ' + format(datum.median_icsea, '.0f')",
                 "as": "median_label"
               },
               {
@@ -2788,7 +2830,7 @@
                 "groupby": ["CRICOS Status", "cricos_x"]
               },
               {
-                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "calculate": "'Median ' + format(datum.median_icsea, '.0f')",
                 "as": "median_label"
               },
               {
@@ -2829,7 +2871,7 @@
                 "groupby": ["CRICOS Status", "cricos_x"]
               },
               {
-                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "calculate": "'Median ' + format(datum.median_icsea, '.0f')",
                 "as": "median_label"
               },
               {
@@ -2871,7 +2913,7 @@
                 "groupby": ["CRICOS Status", "cricos_x"]
               },
               {
-                "calculate": "'Median: ' + format(datum.median_icsea, '.0f')",
+                "calculate": "'Median ' + format(datum.median_icsea, '.0f')",
                 "as": "median_label"
               },
               {
@@ -3134,7 +3176,7 @@
             "color": {
               "field": "sea_group",
               "type": "nominal",
-              "title": "Socio-Educational Advantage quarter (SEA)",
+              "title": "Socioeducational Advantage quarter (SEA)",
               "scale": {
                 "domain": ["Bottom SEA quarter", "Lower middle SEA quarter", "Upper middle SEA quarter", "Top SEA quarter"],
                 "range": ["#D95F02", "#FDB863", "#80CDC1", "#1B9E77"]
@@ -3148,7 +3190,7 @@
             },
             "tooltip": [
               { "field": "School Sector", "type": "nominal", "title": "School sector" },
-              { "field": "sea_group", "type": "nominal", "title": "Socio-Educational Advantage quarter (SEA)" },
+              { "field": "sea_group", "type": "nominal", "title": "Socioeducational Advantage quarter (SEA)" },
               { "field": "student_count", "type": "quantitative", "title": "Estimated students", "format": ",.0f" },
               { "field": "sea_share", "type": "quantitative", "title": "Share within sector", "format": ".1%" }
             ]
@@ -3178,7 +3220,7 @@
             "color": { "value": "black" },
             "tooltip": [
               { "field": "School Sector", "type": "nominal", "title": "School sector" },
-              { "field": "sea_group", "type": "nominal", "title": "Socio-Educational Advantage quarter (SEA)" },
+              { "field": "sea_group", "type": "nominal", "title": "Socioeducational Advantage quarter (SEA)" },
               { "field": "student_count", "type": "quantitative", "title": "Estimated students", "format": ",.0f" },
               { "field": "sea_share", "type": "quantitative", "title": "Share within sector", "format": ".1%" }
             ]
@@ -3201,7 +3243,7 @@
       "x": {
         "field": "icsea_value",
         "type": "quantitative",
-        "title": "Index of Community Socio-Educational Advantage score",
+        "title": "Index of Community Socioeducational Advantage score",
         "scale": { "zero": false }
       },
       "y": {
@@ -3221,7 +3263,7 @@
         { "field": "School Name", "type": "nominal", "title": "School" },
         { "field": "State", "type": "nominal", "title": "State" },
         { "field": "School Sector", "type": "nominal", "title": "Sector" },
-        { "field": "icsea_value", "type": "quantitative", "title": "Index of Community Socio-Educational Advantage", "format": ".0f" },
+        { "field": "icsea_value", "type": "quantitative", "title": "Index of Community Socioeducational Advantage", "format": ".0f" },
         { "field": "lbote_pct", "type": "quantitative", "title": "Language Background Other Than English (%)", "format": ".1f" },
         { "field": "enrolments_value", "type": "quantitative", "title": "Total enrolments", "format": ",.0f" }
       ]
@@ -3240,7 +3282,7 @@
           "bind": {
             "input": "select",
             "options": ["All", "Government", "Catholic", "Independent"],
-            "name": "Sector: "
+            "name": "Sector "
           }
         }
       ],
@@ -3466,7 +3508,7 @@
             "values": [
               {
                 "annotation_y": 0.41,
-                "annotation_text": "NT government schools: nearly 44%\nIndigenous enrolments - highest nationally."
+                "annotation_text": "NT government schools\nNearly 44% Indigenous enrolments\nHighest nationally."
               }
             ]
           },
@@ -3803,7 +3845,7 @@
         ]
       },
       { "filter": "datum.enrolment_rank == 1" },
-      { "calculate": "'Largest school in range:'", "as": "annotation_heading" },
+      { "calculate": "'Largest school in selected range'", "as": "annotation_heading" },
       { "calculate": "datum['School name']", "as": "annotation_school" },
       {
         "calculate": "format(datum['Total enrolments'], ',.0f') + ' students'",
