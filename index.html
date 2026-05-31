@@ -218,6 +218,19 @@
       min-height: 40px;
     }
 
+    .alluvial-vis {
+      max-width: 1180px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+
+    .alluvial-vis svg {
+      display: block;
+      width: 100%;
+      min-width: 980px;
+      height: auto;
+    }
+
     .two-map-controls {
       display: flex;
       gap: 12px;
@@ -1123,7 +1136,25 @@
     </div>
 
     <p class="section-transition">
-      Language background is one part of student diversity, but it is not the only one. In Australia, it is also important to look at Aboriginal and Torres Strait Islander student enrolments, because these patterns vary strongly by state, territory and school sector.
+      The previous charts looked at socio educational advantage and language background separately. This chart brings
+      them together by showing how student enrolments move from school sector, to ICSEA band, and then to broad
+      language background groups.
+    </p>
+
+    <div class="chart-card">
+      <h3>How sector, advantage and language background connect</h3>
+      <p>
+        Each flow represents student enrolments. Wider flows show pathways followed by more students from each school
+        sector through each ICSEA score band and into a broad language background category.
+      </p>
+      <div id="alluvialSectorSeaLbote" class="alluvial-vis"></div>
+      <p class="chart-note">
+        Of the 199,372 students in schools below ICSEA 900, the most disadvantaged communities in Australia, almost all attend government schools. Catholic and independent schools are nearly absent from this band entirely. At the other end, the 1,100+ band contains a far higher mix of Catholic and independent students. Language background remains varied at every advantage level, reinforcing the earlier finding that linguistic diversity and socio-economic disadvantage operate independently.
+      </p>
+    </div>
+
+    <p class="section-transition">
+      The alluvial chart shows that sector, advantage and language background overlap in complex ways. But student background in Australia has another important dimension: Aboriginal and Torres Strait Islander enrolment. The final chart shows how Indigenous enrolment varies by state, territory and school sector.
     </p>
 
     <div class="chart-card">
@@ -3874,7 +3905,7 @@ The three school sectors do not serve identical groups of students. Government s
           "legendY": 500,
           "direction": "horizontal",
           "titleOrient": "top",
-          "values": [1000, 3000, 6000],
+          "values": [500, 1500, 6000],
           "format": ",.0f",
           "symbolFillColor": "#9d9d9d",
           "symbolStrokeColor": "#9d9d9d",
@@ -4105,6 +4136,311 @@ The three school sectors do not serve identical groups of students. Government s
       }
     };
 
+    function renderAlluvialSectorSeaLbote(selector) {
+      const container = document.querySelector(selector);
+      if (!container) return;
+
+      const chartWidth = 1180;
+      const chartHeight = 640;
+      const margin = { top: 48, right: 158, bottom: 20, left: 138 };
+      const plotWidth = chartWidth - margin.left - margin.right;
+      const plotHeight = chartHeight - margin.top - margin.bottom;
+      const nodeWidth = 22;
+      const nodeGap = 16;
+      const sectorOrder = ["Government", "Catholic", "Independent"];
+      const bandOrder = ["Below 900", "900 to 999", "1000 to 1099", "1100 and above"];
+      const languageOrder = ["Mostly English", "Mixed language", "Mostly non English"];
+      const stageOrders = [sectorOrder, bandOrder, languageOrder];
+      const stageTitles = ["School sector", "ICSEA score band", "Language background"];
+      const colors = {
+        "Government": "#5BC2A8",
+        "Catholic": "#E6863E",
+        "Independent": "#9A9BD0",
+        "Below 900": "#DCEAF7",
+        "900 to 999": "#9ECAE1",
+        "1000 to 1099": "#4292C6",
+        "1100 and above": "#084594",
+        "Mostly English": "#F5E6C8",
+        "Mixed language": "#D4956A",
+        "Mostly non English": "#7B3F1E"
+      };
+      const numberFormat = new Intl.NumberFormat("en-AU");
+      const percentFormat = new Intl.NumberFormat("en-AU", {
+        style: "percent",
+        minimumFractionDigits: 1,
+        maximumFractionDigits: 1
+      });
+
+      function showError(error) {
+        const message = error && error.message ? error.message : String(error);
+        container.textContent = `Unable to render chart  ${message}`;
+      }
+
+      function bandLabel(icsea) {
+        if (icsea < 900) return "Below 900";
+        if (icsea < 1000) return "900 to 999";
+        if (icsea < 1100) return "1000 to 1099";
+        return "1100 and above";
+      }
+
+      function lboteLabel(lbote) {
+        if (lbote < 10) return "Mostly English";
+        if (lbote <= 50) return "Mixed language";
+        return "Mostly non English";
+      }
+
+      function numericValue(value) {
+        if (value == null || String(value).trim() === "") return NaN;
+        return Number(String(value).replace(/,/g, ""));
+      }
+
+      function addToMap(map, key, value) {
+        map.set(key, (map.get(key) || 0) + value);
+      }
+
+      function aggregateLinks(rows, sourceField, targetField) {
+        const totals = new Map();
+        rows.forEach(row => {
+          addToMap(totals, `${row[sourceField]}\u0000${row[targetField]}`, row.enrolments);
+        });
+        return Array.from(totals, ([key, value]) => {
+          const [source, target] = key.split("\u0000");
+          return { source, target, value };
+        });
+      }
+
+      function buildLayout(rows) {
+        const totalEnrolments = rows.reduce((sum, row) => sum + row.enrolments, 0);
+        const links = [
+          ...aggregateLinks(rows, "sector", "band"),
+          ...aggregateLinks(rows, "band", "language")
+        ];
+        const linkedIds = new Set(links.flatMap(link => [link.source, link.target]));
+        const stageNodes = stageOrders.map((ids, depth) =>
+          ids.filter(id => linkedIds.has(id)).map(id => ({ id, depth }))
+        );
+        const nodes = stageNodes.flat();
+        const nodeTotals = new Map(nodes.map(node => [node.id, 0]));
+
+        rows.forEach(row => {
+          addToMap(nodeTotals, row.sector, row.enrolments);
+          addToMap(nodeTotals, row.band, row.enrolments);
+          addToMap(nodeTotals, row.language, row.enrolments);
+        });
+
+        const flowScale = Math.min(...stageNodes.map(stage => {
+          const availableHeight = plotHeight - nodeGap * (stage.length - 1);
+          return availableHeight / totalEnrolments;
+        }));
+        const xPositions = [0, plotWidth / 2 - nodeWidth / 2, plotWidth - nodeWidth];
+
+        stageNodes.forEach((stage, depth) => {
+          const stageHeight = stage.reduce((sum, node) => sum + nodeTotals.get(node.id) * flowScale, 0)
+            + nodeGap * (stage.length - 1);
+          let y = margin.top + (plotHeight - stageHeight) / 2;
+          stage.forEach(node => {
+            node.value = nodeTotals.get(node.id);
+            node.x0 = margin.left + xPositions[depth];
+            node.x1 = node.x0 + nodeWidth;
+            node.y0 = y;
+            node.y1 = y + node.value * flowScale;
+            node.labelX = depth === 2 ? node.x0 - 8 : node.x1 + 8;
+            node.labelY = (node.y0 + node.y1) / 2 - 4;
+            node.valueY = (node.y0 + node.y1) / 2 + 11;
+            node.align = depth === 2 ? "right" : "left";
+            node.fill = colors[node.id];
+            node.valueLabel = `${numberFormat.format(node.value)} students  ${percentFormat.format(node.value / totalEnrolments)}`;
+            node.tooltip = `${node.id}\n${numberFormat.format(node.value)} enrolments\n${percentFormat.format(node.value / totalEnrolments)} of enrolments`;
+            y = node.y1 + nodeGap;
+          });
+        });
+
+        const nodeById = new Map(nodes.map(node => [node.id, node]));
+        const categoryOrder = new Map(stageOrders.flat().map((id, index) => [id, index]));
+        const sourceOffsets = new Map();
+        const targetOffsets = new Map();
+        const compareBySource = (a, b) =>
+          categoryOrder.get(a.source) - categoryOrder.get(b.source)
+          || categoryOrder.get(a.target) - categoryOrder.get(b.target);
+        const compareByTarget = (a, b) =>
+          categoryOrder.get(a.target) - categoryOrder.get(b.target)
+          || categoryOrder.get(a.source) - categoryOrder.get(b.source);
+
+        [...links].sort(compareBySource).forEach(link => {
+          const source = nodeById.get(link.source);
+          const offset = sourceOffsets.get(link.source) || 0;
+          link.width = link.value * flowScale;
+          link.strokeWidth = Math.max(1, link.width);
+          link.sourceX = source.x1;
+          link.sourceY = source.y0 + offset + link.width / 2;
+          sourceOffsets.set(link.source, offset + link.width);
+        });
+
+        [...links].sort(compareByTarget).forEach(link => {
+          const target = nodeById.get(link.target);
+          const offset = targetOffsets.get(link.target) || 0;
+          link.targetX = target.x0;
+          link.targetY = target.y0 + offset + link.width / 2;
+          targetOffsets.set(link.target, offset + link.width);
+        });
+
+        links.forEach(link => {
+          link.stroke = colors[link.source];
+          link.tooltip = `${link.source} to ${link.target}\n${numberFormat.format(link.value)} enrolments`;
+        });
+
+        const stageLabels = stageTitles.map((label, depth) => ({
+          label,
+          x: margin.left + xPositions[depth] + nodeWidth / 2,
+          y: 20
+        }));
+
+        return { links, nodes, stageLabels };
+      }
+
+      function render(data) {
+        const rows = data
+          .map(row => {
+            const icsea = numericValue(row["ICSEA"]);
+            const lbote = numericValue(row["Language Background Other Than English - Yes (%)"]);
+            return {
+              sector: row["School Sector"],
+              band: Number.isFinite(icsea) ? bandLabel(icsea) : null,
+              language: Number.isFinite(lbote) ? lboteLabel(lbote) : null,
+              enrolments: numericValue(row["Total Enrolments"])
+            };
+          })
+          .filter(row =>
+            sectorOrder.includes(row.sector)
+            && row.band
+            && row.language
+            && Number.isFinite(row.enrolments)
+            && row.enrolments > 0
+          );
+        const layout = buildLayout(rows);
+        const spec = {
+          "$schema": "https://vega.github.io/schema/vega/v5.json",
+          "width": chartWidth,
+          "height": chartHeight,
+          "padding": 0,
+          "autosize": "none",
+          "background": "#ffffff",
+          "data": [
+            {
+              "name": "links",
+              "values": layout.links,
+              "transform": [{
+                "type": "linkpath",
+                "orient": "horizontal",
+                "shape": "diagonal",
+                "sourceX": "sourceX",
+                "sourceY": "sourceY",
+                "targetX": "targetX",
+                "targetY": "targetY"
+              }]
+            },
+            { "name": "nodes", "values": layout.nodes },
+            { "name": "stageLabels", "values": layout.stageLabels }
+          ],
+          "marks": [
+            {
+              "type": "path",
+              "from": { "data": "links" },
+              "encode": {
+                "enter": {
+                  "path": { "field": "path" },
+                  "fill": { "value": null },
+                  "stroke": { "field": "stroke" },
+                  "strokeWidth": { "field": "strokeWidth" },
+                  "strokeOpacity": { "value": 0.3 },
+                  "tooltip": { "field": "tooltip" }
+                },
+                "hover": {
+                  "strokeOpacity": { "value": 0.68 }
+                }
+              }
+            },
+            {
+              "type": "rect",
+              "from": { "data": "nodes" },
+              "encode": {
+                "enter": {
+                  "x": { "field": "x0" },
+                  "x2": { "field": "x1" },
+                  "y": { "field": "y0" },
+                  "y2": { "field": "y1" },
+                  "fill": { "field": "fill" },
+                  "stroke": { "value": "#ffffff" },
+                  "strokeWidth": { "value": 1.2 },
+                  "tooltip": { "field": "tooltip" }
+                }
+              }
+            },
+            {
+              "type": "text",
+              "from": { "data": "nodes" },
+              "encode": {
+                "enter": {
+                  "x": { "field": "labelX" },
+                  "y": { "field": "labelY" },
+                  "align": { "field": "align" },
+                  "baseline": { "value": "middle" },
+                  "text": { "field": "id" },
+                  "font": { "value": "Arial" },
+                  "fontSize": { "value": 12 },
+                  "fontWeight": { "value": "bold" },
+                  "fill": { "value": "#111111" }
+                }
+              }
+            },
+            {
+              "type": "text",
+              "from": { "data": "nodes" },
+              "encode": {
+                "enter": {
+                  "x": { "field": "labelX" },
+                  "y": { "field": "valueY" },
+                  "align": { "field": "align" },
+                  "baseline": { "value": "middle" },
+                  "text": { "field": "valueLabel" },
+                  "font": { "value": "Arial" },
+                  "fontSize": { "value": 11 },
+                  "fill": { "value": "#333333" }
+                }
+              }
+            },
+            {
+              "type": "text",
+              "from": { "data": "stageLabels" },
+              "encode": {
+                "enter": {
+                  "x": { "field": "x" },
+                  "y": { "field": "y" },
+                  "align": { "value": "center" },
+                  "baseline": { "value": "middle" },
+                  "text": { "field": "label" },
+                  "font": { "value": "Arial" },
+                  "fontSize": { "value": 14 },
+                  "fontWeight": { "value": "bold" },
+                  "fill": { "value": "#222222" }
+                }
+              }
+            }
+          ]
+        };
+
+        return new vega.View(vega.parse(spec), { renderer: "svg" })
+          .initialize(selector)
+          .hover()
+          .run();
+      }
+
+      vega.loader()
+        .load("data/School_Profile_2025.csv")
+        .then(csv => render(vega.read(csv, { type: "csv" })))
+        .catch(showError);
+    }
+
     const embedOptions = {
       renderer: "svg",
       actions: false
@@ -4128,6 +4464,7 @@ The three school sectors do not serve identical groups of students. Government s
         filterSlot.appendChild(bindings);
       }
     });
+    renderAlluvialSectorSeaLbote("#alluvialSectorSeaLbote");
     vegaEmbed("#indigenousChart", indigenousSpec, embedOptions);
     vegaEmbed("#topEnrolment", topEnrolmentSpec, embedOptions);
   </script>
